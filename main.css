@@ -29,6 +29,10 @@ td, th {
     background-position: center center;
 }
 
+td {
+    width: 12.5%;
+}
+
 html, body {
   height: 100%;
 }
@@ -141,3 +145,4 @@ background-image: url("shading/5.jpg");
 
 .bg_shading_6 {
 background-image: url("shading/6.jpg");
+}
