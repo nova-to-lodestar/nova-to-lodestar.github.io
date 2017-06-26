@@ -141,3 +141,14 @@ background-image: url("shading/5.jpg");
 
 .bg_shading_6 {
 background-image: url("shading/6.jpg");
+}
+
+/*===============CLASSES FOR BLINKING===============*/
+
+.blink_2 {
+background-image: url("animated/2.gif");
+}
+
+.blink_6 {
+background-image: url("animated/6.gif");
+}
