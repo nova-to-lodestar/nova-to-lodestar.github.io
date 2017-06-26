@@ -1,0 +1,142 @@
+html, body {
+    height: 100%;
+}
+
+html {
+    font-size: 18px;
+}
+
+body {
+    line-height: 1.5;
+    color: #333;
+    padding: 0;
+    margin: 0;
+}
+
+table {
+    font-family: arial, sans-serif;
+    color: #00ffff;
+    font-size: 64pt;
+    width: 100%;
+    height: 100%;
+    border-collapse: collapse;
+}
+
+td, th {
+    border: 3px solid #777;
+    text-align: center;
+    background-size: cover;
+}
+
+html, body {
+  height: 100%;
+}
+
+/*===============CLASSES FOR COLORS===============*/
+
+.x {
+background-image: url("colors/off.jpg");
+}
+
+.bg_red{
+background-image: url("colors/red.jpg");
+}
+
+.bg_green {
+background-image: url("colors/green.jpg");
+}
+
+.bg_blue {
+background-image: url("colors/blue.jpg");
+}
+
+.y {
+background-image: url("colors/yellow.jpg");
+}
+
+.bg_magenta {
+background-image: url("colors/magenta.jpg");
+}
+
+.bg_cyan {
+background-image: url("colors/cyan.jpg");
+}
+
+.bg_white {
+background-image: url("colors/white.jpg");
+}
+
+.bg_black {
+background-image: url("colors/black.jpg");
+}
+
+/*===============CLASSES FOR NUMBERS===============*/
+
+.n0 {
+background-image: url("numbers/0.jpg");
+}
+
+.n1 {
+background-image: url("numbers/1.jpg");
+}
+
+.n2 {
+background-image: url("numbers/2.jpg");
+}
+
+.n3 {
+background-image: url("numbers/3.jpg");
+}
+
+.n4 {
+background-image: url("numbers/4.jpg");
+}
+
+.n5 {
+background-image: url("numbers/5.jpg");
+}
+
+.n6 {
+background-image: url("numbers/6.jpg");
+}
+
+.n7 {
+background-image: url("numbers/7.jpg");
+}
+
+.n8 {
+background-image: url("numbers/8.jpg");
+}
+
+.n9 {
+background-image: url("numbers/9.jpg");
+}
+
+.n12 {
+background-image: url("numbers/12.jpg");
+}
+
+/*===============CLASSES FOR SHADING===============*/
+
+.bg_shading_1 {
+background-image: url("shading/1.jpg");
+}
+
+.bg_shading_2 {
+background-image: url("shading/2.jpg");
+}
+
+.bg_shading_3 {
+background-image: url("shading/3.jpg");
+}
+
+.bg_shading_4 {
+background-image: url("shading/4.jpg");
+}
+
+.bg_shading_5 {
+background-image: url("shading/5.jpg");
+}
+
+.bg_shading_6 {
+background-image: url("shading/6.jpg");
