@@ -38,15 +38,15 @@ html, body {
 background-image: url("colors/off.jpg");
 }
 
-.bg_red{
+.r {
 background-image: url("colors/red.jpg");
 }
 
-.bg_green {
+.g {
 background-image: url("colors/green.jpg");
 }
 
-.bg_blue {
+.b {
 background-image: url("colors/blue.jpg");
 }
 
@@ -54,7 +54,7 @@ background-image: url("colors/blue.jpg");
 background-image: url("colors/yellow.jpg");
 }
 
-.bg_magenta {
+.m {
 background-image: url("colors/magenta.jpg");
 }
 
@@ -62,11 +62,11 @@ background-image: url("colors/magenta.jpg");
 background-image: url("colors/cyan.jpg");
 }
 
-.bg_white {
+.w {
 background-image: url("colors/white.jpg");
 }
 
-.bg_black {
+.k {
 background-image: url("colors/black.jpg");
 }
 
