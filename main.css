@@ -29,6 +29,10 @@ td, th {
     background-position: center center;
 }
 
+td {
+    width: 12.5%;
+}
+
 html, body {
   height: 100%;
 }
@@ -142,6 +146,7 @@ background-image: url("shading/5.jpg");
 .bg_shading_6 {
 background-image: url("shading/6.jpg");
 }
+<<<<<<< HEAD
 
 /*===============CLASSES FOR BLINKING===============*/
 
@@ -152,3 +157,5 @@ background-image: url("animated/2.gif");
 .blink_6 {
 background-image: url("animated/6.gif");
 }
+=======
+>>>>>>> origin/master
