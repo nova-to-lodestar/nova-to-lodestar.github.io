@@ -1,8 +1,8 @@
 var content = null;
 
-$(function(){
+var makeTable = function(classes, content) {
     var html = '<table>';
-    $.each(data, function(i, value) {
+    $.each(classes, function(i, value) {
         html += '<tr>';
         $.each(value, function(j, value) {
             text = "";
@@ -16,4 +16,8 @@ $(function(){
     html += '</table>';
 
     $('body').html(html);
+}
+
+$(function() {
+    makeTable(data, content);
 });

@@ -26,6 +26,7 @@ td, th {
     border: 3px solid #777;
     text-align: center;
     background-size: cover;
+    background-position: center center;
 }
 
 html, body {
