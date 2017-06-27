@@ -172,3 +172,23 @@ background-image: url("animated/5.gif");
 .blink_6 {
 background-image: url("animated/6.gif");
 }
+
+/*===============CLASSES FOR BLINKING===============*/
+
+.s0 {background-image: url("animated/8.5s/0.gif");}
+.s1 {background-image: url("animated/8.5s/1.gif");}
+.s2 {background-image: url("animated/8.5s/2.gif");}
+.s3 {background-image: url("animated/8.5s/3.gif");}
+.s4 {background-image: url("animated/8.5s/4.gif");}
+.s5 {background-image: url("animated/8.5s/5.gif");}
+.s6 {background-image: url("animated/8.5s/6.gif");}
+.s7 {background-image: url("animated/8.5s/7.gif");}
+.s8 {background-image: url("animated/8.5s/8.gif");}
+.s9 {background-image: url("animated/8.5s/9.gif");}
+.s10 {background-image: url("animated/8.5s/10.gif");}
+.s11 {background-image: url("animated/8.5s/11.gif");}
+.s12 {background-image: url("animated/8.5s/12.gif");}
+.s13 {background-image: url("animated/8.5s/13.gif");}
+.s14 {background-image: url("animated/8.5s/14.gif");}
+.s15 {background-image: url("animated/8.5s/15.gif");}
+.s16 {background-image: url("animated/8.5s/16.gif");}
