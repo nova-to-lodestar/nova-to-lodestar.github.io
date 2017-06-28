@@ -176,6 +176,10 @@
     > li {
         margin-bottom: $spacing-unit;
     }
+
+    a {
+        display: block;
+    }
 }
 
 .post-meta {
