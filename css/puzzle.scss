@@ -293,7 +293,9 @@ html, body {
   )
 );
 
-/*===============CLASSES FOR COLORS===============*/
+/*===============
+COLORS
+===============*/
 
 .x {}
 .b { background-color: blue; }
@@ -302,11 +304,14 @@ html, body {
 .y { background-color: yellow; }
 .m { background-color: magenta; }
 .c { background-color: cyan; }
+.p { background-color: purple; }
 .w { background-color: white; }
 .k { background-color: black; }
 
 
-/*===============CLASSES FOR NUMBERS===============*/
+/*===============
+NUMBERS
+===============*/
 
 .n0 {
 background-image: url("/img/numbers/0.jpg");
@@ -352,55 +357,67 @@ background-image: url("/img/numbers/9.jpg");
 background-image: url("/img/numbers/12.jpg");
 }
 
-/*===============CLASSES FOR SHADING===============*/
+/*===============
+SHADING
+===============*/
 
-.bg_shading_1 {
-background-image: url("/img/shading/1.jpg");
-}
+.bg_shading_1 { background-image: url("/img/shading/1.jpg"); }
+.bg_shading_2 { background-image: url("/img/shading/2.jpg"); }
+.bg_shading_3 { background-image: url("/img/shading/3.jpg"); }
+.bg_shading_4 { background-image: url("/img/shading/4.jpg"); }
+.bg_shading_5 { background-image: url("/img/shading/5.jpg"); }
+.bg_shading_6 { background-image: url("/img/shading/6.jpg"); }
 
-.bg_shading_2 {
-background-image: url("/img/shading/2.jpg");
-}
+/*===============
+BLINKING
+===============*/
 
-.bg_shading_3 {
-background-image: url("/img/shading/3.jpg");
-}
-
-.bg_shading_4 {
-background-image: url("/img/shading/4.jpg");
-}
-
-.bg_shading_5 {
-background-image: url("/img/shading/5.jpg");
-}
-
-.bg_shading_6 {
-background-image: url("/img/shading/6.jpg");
-}
-
-/*===============CLASSES FOR BLINKING===============*/
-
-@keyframes oneblink {
+@keyframes blinkcyan {
   5% {
     background-color: cyan; }
   10% {
     background-color: #777; }
 }
 
-.s0 { animation: oneblink 4s 0s ease infinite; }
-.s1 { animation: oneblink 4s .25s ease infinite; }
-.s2 { animation: oneblink 4s .5s ease infinite; }
-.s3 { animation: oneblink 4s .75s ease infinite; }
-.s4 { animation: oneblink 4s 1s ease infinite; }
-.s5 { animation: oneblink 4s 1.25s ease infinite; }
-.s6 { animation: oneblink 4s 1.5s ease infinite; }
-.s7 { animation: oneblink 4s 1.75s ease infinite; }
-.s8 { animation: oneblink 4s 2s ease infinite; }
-.s9 { animation: oneblink 4s 2.25s ease infinite; }
-.s10 { animation: oneblink 4s 2.5s ease infinite; }
-.s11 { animation: oneblink 4s 2.75s ease infinite; }
-.s12 { animation: oneblink 4s 3s ease infinite; }
-.s13 { animation: oneblink 4s 3.25s ease infinite; }
-.s14 { animation: oneblink 4s 3.5s ease infinite; }
-.s15 { animation: oneblink 4s 3.75s ease infinite; }
-.s16 { animation: oneblink 4s 4s ease infinite; }
+@keyframes blinkmagenta {
+  5% {
+    background-color: magenta; }
+  10% {
+    background-color: #777; }
+}
+
+.s0 { animation: blinkcyan 4s 0s ease infinite; }
+.s1 { animation: blinkcyan 4s .25s ease infinite; }
+.s2 { animation: blinkcyan 4s .5s ease infinite; }
+.s3 { animation: blinkcyan 4s .75s ease infinite; }
+.s4 { animation: blinkcyan 4s 1s ease infinite; }
+.s5 { animation: blinkcyan 4s 1.25s ease infinite; }
+.s6 { animation: blinkcyan 4s 1.5s ease infinite; }
+.s7 { animation: blinkcyan 4s 1.75s ease infinite; }
+.s8 { animation: blinkcyan 4s 2s ease infinite; }
+.s9 { animation: blinkcyan 4s 2.25s ease infinite; }
+.s10 { animation: blinkcyan 4s 2.5s ease infinite; }
+.s11 { animation: blinkcyan 4s 2.75s ease infinite; }
+.s12 { animation: blinkcyan 4s 3s ease infinite; }
+.s13 { animation: blinkcyan 4s 3.25s ease infinite; }
+.s14 { animation: blinkcyan 4s 3.5s ease infinite; }
+.s15 { animation: blinkcyan 4s 3.75s ease infinite; }
+.s16 { animation: blinkcyan 4s 4s ease infinite; }
+
+.m0 { animation: blinkmagenta 4s 0s ease infinite; }
+.m1 { animation: blinkmagenta 4s .25s ease infinite; }
+.m2 { animation: blinkmagenta 4s .5s ease infinite; }
+.m3 { animation: blinkmagenta 4s .75s ease infinite; }
+.m4 { animation: blinkmagenta 4s 1s ease infinite; }
+.m5 { animation: blinkmagenta 4s 1.25s ease infinite; }
+.m6 { animation: blinkmagenta 4s 1.5s ease infinite; }
+.m7 { animation: blinkmagenta 4s 1.75s ease infinite; }
+.m8 { animation: blinkmagenta 4s 2s ease infinite; }
+.m9 { animation: blinkmagenta 4s 2.25s ease infinite; }
+.m10 { animation: blinkmagenta 4s 2.5s ease infinite; }
+.m11 { animation: blinkmagenta 4s 2.75s ease infinite; }
+.m12 { animation: blinkmagenta 4s 3s ease infinite; }
+.m13 { animation: blinkmagenta 4s 3.25s ease infinite; }
+.m14 { animation: blinkmagenta 4s 3.5s ease infinite; }
+.m15 { animation: blinkmagenta 4s 3.75s ease infinite; }
+.m16 { animation: blinkmagenta 4s 4s ease infinite; }
