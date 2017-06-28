@@ -28,6 +28,8 @@ table {
 td, th {
     border: 3px solid #777;
     text-align: center;
+    background-image: url("/img/panel.png");
+    background-color: #777;
     background-size: cover;
     background-position: center center;
 }
@@ -40,43 +42,261 @@ html, body {
   height: 100%;
 }
 
+/*=============== BLINKING ===============*/
+
+@mixin waitAnimate($options: ()) {
+  $options: map-merge((
+    animationName: waitAnimate,
+    duration: 1,
+    waitTime: 0,
+    timingFunction: linear,
+    iterationCount: infinite
+  ), $options);
+
+  $name: map-get($options, animationName);
+  $kf: map-get($options, keyframes);
+  $kfLength: length($kf);
+  $duration: map-get($options, duration);
+  $waitTime: map-get($options, waitTime);
+  $timingFunction: map-get($options, timingFunction);
+  $iterationCount: map-get($options, iterationCount);
+  $counter: 1; // index of 'each'
+
+  @keyframes #{$name} {
+    @each $frame, $prop in $kf {
+      #{$frame * $duration / ($duration + $waitTime)}% {
+        @each $k, $v in $prop {
+          #{$k}: #{$v}
+        }
+      }
+      // if last in loop and waitTime is not 0, add the last frame as 100% (this is what creates the pause)
+      @if $counter == $kfLength and $waitTime > 0 {
+        100% {
+          @each $k, $v in $prop {
+            #{$k}: #{$v}
+          }
+        }
+      }
+      $counter: $counter+1;
+    }
+  }
+
+  .#{$name} {
+    animation: #{$name} #{$duration + $waitTime}s #{$timingFunction} #{$iterationCount};
+  }
+}
+
+@include waitAnimate(
+  (
+    animationName: blink1,
+    keyframes: (
+      50: (
+        background-color: cyan
+      ),
+      100: (
+        background-color: #777
+      )
+    ),
+    duration: .5,
+    waitTime: 1,
+    timingFunction: ease,
+    iterationCount: infinite
+  )
+);
+
+@include waitAnimate(
+  (
+    animationName: blink2,
+    keyframes: (
+      25: (
+        background-color: cyan
+      ),
+      50: (
+        background-color: #777
+      ),
+      75: (
+        background-color: cyan
+      ),
+      100: (
+        background-color: #777
+      )
+    ),
+    duration: 1,
+    waitTime: 1,
+    timingFunction: ease,
+    iterationCount: infinite
+  )
+);
+
+
+@include waitAnimate(
+  (
+    animationName: blink3,
+    keyframes: (
+      16: (
+        background-color: cyan
+      ),
+      32: (
+        background-color: #777
+      ),
+      48: (
+        background-color: cyan
+      ),
+      64: (
+        background-color: #777
+      ),
+      80: (
+        background-color: cyan
+      ),
+      96: (
+        background-color: #777
+      )
+    ),
+    duration: 1.5,
+    waitTime: 1,
+    timingFunction: ease,
+    iterationCount: infinite
+  )
+);
+
+@include waitAnimate(
+  (
+    animationName: blink4,
+    keyframes: (
+      12: (
+        background-color: cyan
+      ),
+      25: (
+        background-color: #777
+      ),
+      37: (
+        background-color: cyan
+      ),
+      50: (
+        background-color: #777
+      ),
+      62: (
+        background-color: cyan
+      ),
+      75: (
+        background-color: #777
+      ),
+      87: (
+        background-color: cyan
+      ),
+      100: (
+        background-color: #777
+      )
+    ),
+    duration: 2,
+    waitTime: 1,
+    timingFunction: ease,
+    iterationCount: infinite
+  )
+);
+
+@include waitAnimate(
+  (
+    animationName: blink5,
+    keyframes: (
+      10: (
+        background-color: cyan
+      ),
+      20: (
+        background-color: #777
+      ),
+      30: (
+        background-color: cyan
+      ),
+      40: (
+        background-color: #777
+      ),
+      50: (
+        background-color: cyan
+      ),
+      60: (
+        background-color: #777
+      ),
+      70: (
+        background-color: cyan
+      ),
+      80: (
+        background-color: #777
+      ),
+      90: (
+        background-color: cyan
+      ),
+      100: (
+        background-color: #777
+      )
+    ),
+    duration: 2.5,
+    waitTime: 1,
+    timingFunction: ease,
+    iterationCount: infinite
+  )
+);
+
+@include waitAnimate(
+  (
+    animationName: blink6,
+    keyframes: (
+      8: (
+        background-color: cyan
+      ),
+      16: (
+        background-color: #777
+      ),
+      24: (
+        background-color: cyan
+      ),
+      32: (
+        background-color: #777
+      ),
+      40: (
+        background-color: cyan
+      ),
+      48: (
+        background-color: #777
+      ),
+      56: (
+        background-color: cyan
+      ),
+      64: (
+        background-color: #777
+      ),
+      72: (
+        background-color: cyan
+      ),
+      80: (
+        background-color: #777
+      ),
+      88: (
+        background-color: cyan
+      ),
+      96: (
+        background-color: #777
+      )
+    ),
+    duration: 3,
+    waitTime: 1,
+    timingFunction: ease,
+    iterationCount: infinite
+  )
+);
+
 /*===============CLASSES FOR COLORS===============*/
 
-.x {
-background-image: url("/img/colors/off.jpg");
-}
+.x {}
+.b { background-image: blue; }
+.r { background-image: red; }
+.g { background-image: green; }
+.y { background-image: yellow; }
+.m { background-image: magenta; }
+.c { background-color: cyan; }
+.w { background-image: white; }
+.k { background-image: black; }
 
-.r {
-background-image: url("/img/colors/red.jpg");
-}
-
-.g {
-background-image: url("/img/colors/green.jpg");
-}
-
-.b {
-background-image: url("/img/colors/blue.jpg");
-}
-
-.y {
-background-image: url("/img/colors/yellow.jpg");
-}
-
-.m {
-background-image: url("/img/colors/magenta.jpg");
-}
-
-.c {
-background-image: url("/img/colors/cyan.jpg");
-}
-
-.w {
-background-image: url("/img/colors/white.jpg");
-}
-
-.k {
-background-image: url("/img/colors/black.jpg");
-}
 
 /*===============CLASSES FOR NUMBERS===============*/
 
@@ -152,46 +372,27 @@ background-image: url("/img/shading/6.jpg");
 
 /*===============CLASSES FOR BLINKING===============*/
 
-.blink_1 {
-background-image: url("/img/animated/1.gif");
+@keyframes oneblink {
+  5% {
+    background-color: cyan; }
+  10% {
+    background-color: #777; }
 }
 
-.blink_2 {
-background-image: url("/img/animated/2.gif");
-}
-
-.blink_3 {
-background-image: url("/img/animated/3.gif");
-}
-
-.blink_4 {
-background-image: url("/img/animated/4.gif");
-}
-
-.blink_5 {
-background-image: url("/img/animated/5.gif");
-}
-
-.blink_6 {
-background-image: url("/img/animated/6.gif");
-}
-
-/*===============CLASSES FOR BLINKING===============*/
-
-.s0 {background-image: url("/img/animated/8.5s/0.gif");}
-.s1 {background-image: url("/img/animated/8.5s/1.gif");}
-.s2 {background-image: url("/img/animated/8.5s/2.gif");}
-.s3 {background-image: url("/img/animated/8.5s/3.gif");}
-.s4 {background-image: url("/img/animated/8.5s/4.gif");}
-.s5 {background-image: url("/img/animated/8.5s/5.gif");}
-.s6 {background-image: url("/img/animated/8.5s/6.gif");}
-.s7 {background-image: url("/img/animated/8.5s/7.gif");}
-.s8 {background-image: url("/img/animated/8.5s/8.gif");}
-.s9 {background-image: url("/img/animated/8.5s/9.gif");}
-.s10 {background-image: url("/img/animated/8.5s/10.gif");}
-.s11 {background-image: url("/img/animated/8.5s/11.gif");}
-.s12 {background-image: url("/img/animated/8.5s/12.gif");}
-.s13 {background-image: url("/img/animated/8.5s/13.gif");}
-.s14 {background-image: url("/img/animated/8.5s/14.gif");}
-.s15 {background-image: url("/img/animated/8.5s/15.gif");}
-.s16 {background-image: url("/img/animated/8.5s/16.gif");}
+.s0 { animation: oneblink 4s 0s ease infinite; }
+.s1 { animation: oneblink 4s .25s ease infinite; }
+.s2 { animation: oneblink 4s .5s ease infinite; }
+.s3 { animation: oneblink 4s .75s ease infinite; }
+.s4 { animation: oneblink 4s 1s ease infinite; }
+.s5 { animation: oneblink 4s 1.25s ease infinite; }
+.s6 { animation: oneblink 4s 1.5s ease infinite; }
+.s7 { animation: oneblink 4s 1.75s ease infinite; }
+.s8 { animation: oneblink 4s 2s ease infinite; }
+.s9 { animation: oneblink 4s 2.25s ease infinite; }
+.s10 { animation: oneblink 4s 2.5s ease infinite; }
+.s11 { animation: oneblink 4s 2.75s ease infinite; }
+.s12 { animation: oneblink 4s 3s ease infinite; }
+.s13 { animation: oneblink 4s 3.25s ease infinite; }
+.s14 { animation: oneblink 4s 3.5s ease infinite; }
+.s15 { animation: oneblink 4s 3.75s ease infinite; }
+.s16 { animation: oneblink 4s 4s ease infinite; }
