@@ -1,5 +1,3 @@
-var content = null;
-
 var makeTable = function(classes, content) {
     var html = '<table>';
     $.each(classes, function(i, value) {
