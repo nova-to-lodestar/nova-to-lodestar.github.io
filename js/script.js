@@ -9,7 +9,7 @@ var makeTable = function(classes, content) {
             if (content != null) {
                 text = content[i][j];
             }
-            html += '<td class="' + value + '">' + text + '</td>';
+            html += '<td class="' + value + '"><a href="/">' + text + '</a></td>';
         });
         html += '</tr>';
     });
