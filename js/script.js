@@ -25,7 +25,7 @@ $(function() {
     makeTable(data, content);
 
     $('table a').click(function(e) {
-        $(this).addClass('on').toggleClass('w');
+        $(this).addClass('on').toggleClass(toggleColor);
         e.preventDefault();
     });
 });

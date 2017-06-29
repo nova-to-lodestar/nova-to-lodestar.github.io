@@ -331,6 +331,7 @@ COLORS
 .m { background-color: magenta; }
 .c { background-color: cyan; }
 .p { background-color: purple; }
+.o { background-color: orange; }
 .w { background-color: white; }
 .k { background-color: black; }
 
@@ -419,6 +420,13 @@ BLINKING
     background-color: #777; }
 }
 
+@keyframes blinkyellow {
+  5% {
+    background-color: yellow; }
+  10% {
+    background-color: #777; }
+}
+
 .s0 { animation: blinkcyan 4s 0s ease infinite; }
 .s1 { animation: blinkcyan 4s .25s ease infinite; }
 .s2 { animation: blinkcyan 4s .5s ease infinite; }
@@ -436,6 +444,24 @@ BLINKING
 .s14 { animation: blinkcyan 4s 3.5s ease infinite; }
 .s15 { animation: blinkcyan 4s 3.75s ease infinite; }
 .s16 { animation: blinkcyan 4s 4s ease infinite; }
+
+.y0 { animation: blinkyellow 4s 0s ease infinite; }
+.y1 { animation: blinkyellow 4s .25s ease infinite; }
+.y2 { animation: blinkyellow 4s .5s ease infinite; }
+.y3 { animation: blinkyellow 4s .75s ease infinite; }
+.y4 { animation: blinkyellow 4s 1s ease infinite; }
+.y5 { animation: blinkyellow 4s 1.25s ease infinite; }
+.y6 { animation: blinkyellow 4s 1.5s ease infinite; }
+.y7 { animation: blinkyellow 4s 1.75s ease infinite; }
+.y8 { animation: blinkyellow 4s 2s ease infinite; }
+.y9 { animation: blinkyellow 4s 2.25s ease infinite; }
+.y10 { animation: blinkyellow 4s 2.5s ease infinite; }
+.y11 { animation: blinkyellow 4s 2.75s ease infinite; }
+.y12 { animation: blinkyellow 4s 3s ease infinite; }
+.y13 { animation: blinkyellow 4s 3.25s ease infinite; }
+.y14 { animation: blinkyellow 4s 3.5s ease infinite; }
+.y15 { animation: blinkyellow 4s 3.75s ease infinite; }
+.y16 { animation: blinkyellow 4s 4s ease infinite; }
 
 .m0 { animation: blinkmagenta 4s 0s ease infinite; }
 .m1 { animation: blinkmagenta 4s .25s ease infinite; }
