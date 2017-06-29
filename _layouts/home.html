@@ -5,47 +5,15 @@ layout: default
 <div class="home">
 
   <ul class="post-list">
-    <h2>Colors</h2>
-    {% for page in site.set_colors %}
-      <li>
-          <a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
-      </li>
+    {% for collection in site.collections %}
+        <h2>{{ collection.title }}</h2>
+        {% for doc in collection.docs %}
+          <li>
+              <a class="page-link" href="{{ doc.url | prepend: site.baseurl }}">{{ doc.title }}</a>
+          </li>
+        {% endfor %}
     {% endfor %}
 
-    <h2>Line</h2>
-    {% for page in site.set_line %}
-      <li>
-          <a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
-      </li>
-    {% endfor %}
-
-    <h2>Cross</h2>
-    {% for page in site.set_cross %}
-      <li>
-          <a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
-      </li>
-    {% endfor %}
-
-    <h2>Copy</h2>
-    {% for page in site.set_copy %}
-      <li>
-          <a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
-      </li>
-    {% endfor %}
-
-    <h2>Blink</h2>
-    {% for page in site.set_blink %}
-      <li>
-          <a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
-      </li>
-    {% endfor %}
-
-    <h2>Tangrams</h2>
-    {% for page in site.set_tangrams %}
-      <li>
-          <a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
-      </li>
-    {% endfor %}
 
     <h2>Rest</h2>
 
