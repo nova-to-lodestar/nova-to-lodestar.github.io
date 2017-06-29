@@ -46,6 +46,9 @@ collections:
   set_copy:
     output: true
     title: Copy
+  set_number:
+    output: true
+    title: Number
   set_blink:
     output: true
     title: Blink
