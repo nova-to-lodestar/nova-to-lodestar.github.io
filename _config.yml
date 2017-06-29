@@ -31,3 +31,18 @@ gems:
 exclude:
   - Gemfile
   - Gemfile.lock
+
+# Collections
+collections:
+  set_colors:
+    output: true
+  set_line:
+    output: true
+  set_cross:
+    output: true
+  set_copy:
+    output: true
+  set_blink:
+    output: true
+  set_tangrams:
+    output: true

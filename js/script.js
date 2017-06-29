@@ -7,20 +7,20 @@ var makeTable = function(classes, content) {
             if (content != null) {
                 text = content[i][j];
             }
-            html += '<td class="' + value + '"><a href="/">' + text + '</a></td>';
+            html += '<td><a class="on ' + value + '" href="/">' + text + '</a></td>';
         });
         html += '</tr>';
     });
     html += '</table>';
 
-    $('body').html(html);
+    $('.container').html(html);
 }
 
 $(function() {
     makeTable(data, content);
 
-    $('a').click(function(e) {
-        $(this).parent().toggleClass('w');
+    $('table a').click(function(e) {
+        $(this).addClass('on').toggleClass('w');
         e.preventDefault();
     });
 });

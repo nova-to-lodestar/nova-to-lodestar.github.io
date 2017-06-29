@@ -16,6 +16,26 @@ body {
     margin: 0;
 }
 
+$nav_height: 3%;
+
+.nav {
+    background:#333;
+    height: $nav_height;
+
+    a {
+        display: block;
+        height: 100%;
+
+        &:hover {
+            background:#555;
+        }
+    }
+}
+
+.container {
+    height: 100 - $nav_height;
+}
+
 table {
     font-family: arial, sans-serif;
     color: #00ffff;
@@ -43,6 +63,12 @@ td {
         height: 100%;
         text-decoration: none;
         color: cyan;
+
+        &.on {
+            background-image: url("/img/panel.png");
+            background-size: cover;
+            background-position: center center;
+        }
     }
 }
 
@@ -386,6 +412,13 @@ BLINKING
     background-color: #777; }
 }
 
+@keyframes blinkred {
+  5% {
+    background-color: red; }
+  10% {
+    background-color: #777; }
+}
+
 .s0 { animation: blinkcyan 4s 0s ease infinite; }
 .s1 { animation: blinkcyan 4s .25s ease infinite; }
 .s2 { animation: blinkcyan 4s .5s ease infinite; }
@@ -421,3 +454,21 @@ BLINKING
 .m14 { animation: blinkmagenta 4s 3.5s ease infinite; }
 .m15 { animation: blinkmagenta 4s 3.75s ease infinite; }
 .m16 { animation: blinkmagenta 4s 4s ease infinite; }
+
+.r0 { animation: blinkred 4s 0s ease infinite; }
+.r1 { animation: blinkred 4s .25s ease infinite; }
+.r2 { animation: blinkred 4s .5s ease infinite; }
+.r3 { animation: blinkred 4s .75s ease infinite; }
+.r4 { animation: blinkred 4s 1s ease infinite; }
+.r5 { animation: blinkred 4s 1.25s ease infinite; }
+.r6 { animation: blinkred 4s 1.5s ease infinite; }
+.r7 { animation: blinkred 4s 1.75s ease infinite; }
+.r8 { animation: blinkred 4s 2s ease infinite; }
+.r9 { animation: blinkred 4s 2.25s ease infinite; }
+.r10 { animation: blinkred 4s 2.5s ease infinite; }
+.r11 { animation: blinkred 4s 2.75s ease infinite; }
+.r12 { animation: blinkred 4s 3s ease infinite; }
+.r13 { animation: blinkred 4s 3.25s ease infinite; }
+.r14 { animation: blinkred 4s 3.5s ease infinite; }
+.r15 { animation: blinkred 4s 3.75s ease infinite; }
+.r16 { animation: blinkred 4s 4s ease infinite; }
