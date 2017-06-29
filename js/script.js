@@ -1,5 +1,6 @@
 var makeTable = function(classes, content) {
     var html = '<table>';
+    var clickable = $('body').hasClass('clickable');
     $.each(classes, function(i, value) {
         html += '<tr>';
         $.each(value, function(j, value) {
@@ -7,7 +8,11 @@ var makeTable = function(classes, content) {
             if (content != null) {
                 text = content[i][j];
             }
-            html += '<td><a class="on ' + value + '" href="/">' + text + '</a></td>';
+            if (clickable) {
+                html += '<td><a class="on ' + value + '" href="/">' + text + '</a></td>';
+            } else {
+                html += '<td class="on ' + value + '">' + text + '</td>';
+            }
         });
         html += '</tr>';
     });
