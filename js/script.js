@@ -18,4 +18,9 @@ var makeTable = function(classes, content) {
 
 $(function() {
     makeTable(data, content);
+
+    $('a').click(function(e) {
+        $(this).parent().toggleClass('w');
+        e.preventDefault();
+    });
 });
