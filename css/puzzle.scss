@@ -16,6 +16,10 @@ body {
     margin: 0;
 }
 
+html, body {
+  height: 100%;
+}
+
 $nav_height: 3%;
 
 .nav {
@@ -59,16 +63,53 @@ td {
 
     a {
         display: block;
-        width: 100%;
-        height: 100%;
+        width: 25px;
+        height: 25px;
         text-decoration: none;
-        color: cyan;
+        background:white;
+        margin: 5px auto;
+        opacity: 0;
+    }
+
+    &:hover {
+        a {
+            opacity: 1;
+        }
+    }
+
+    .sphere {
+        border-radius: 50%;
+    }
+
+    .tetra {
+        width: 0;
+        height: 0;
+        background:none;
+        border-left: 17px solid transparent;
+        border-right: 17px solid transparent;
+        border-bottom: 25px solid white;
+    }
+
+    &[data-lit] {
+        background-color: white;
     }
 }
 
-html, body {
-  height: 100%;
-}
+/*===============
+COLORS
+===============*/
+
+.x {}
+.b { background-color: blue; }
+.r { background-color: red; }
+.g { background-color: green; }
+.y { background-color: yellow; }
+.m { background-color: magenta; }
+.c { background-color: cyan; }
+.p { background-color: Fuchsia; }
+.o { background-color: orange; }
+.w { background-color: white; }
+.k { background-color: black; }
 
 /*=============== BLINKING ===============*/
 
@@ -312,28 +353,6 @@ html, body {
     iterationCount: infinite
   )
 );
-
-/*===============
-COLORS
-===============*/
-
-.on {
-    background-image: url("/img/panel.png");
-    background-size: cover;
-    background-position: center center;
-}
-
-.x {}
-.b { background-color: blue; }
-.r { background-color: red; }
-.g { background-color: green; }
-.y { background-color: yellow; }
-.m { background-color: magenta; }
-.c { background-color: cyan; }
-.p { background-color: Fuchsia; }
-.o { background-color: orange; }
-.w { background-color: white; }
-.k { background-color: black; }
 
 
 /*===============
