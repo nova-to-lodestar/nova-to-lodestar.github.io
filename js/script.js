@@ -68,7 +68,7 @@ var flip = function(el, color) {
 };
 
 var flipOne = function(el, color) {
-    $(el).closest('td').toggleClass(color);
+    flip($(el).closest('td'), color);
 };
 
 var flipPlus = function(el, color) {
