@@ -32,7 +32,7 @@ var shapes = [
 var makeTable = function(classes, content) {
     var html = '<table>';
     $.each(classes, function(i, value) {
-        html += '<tr>';
+        html += '<tr data-num=' + i + '>';
         $.each(value, function(j, value) {
             text = "";
             if (content != null) {
@@ -40,7 +40,7 @@ var makeTable = function(classes, content) {
             }
             // lit = lights[i][j] ? "data-lit" : "";
             lit = "";
-            html += '<td data-num="' + j + '" ' + lit + ' class="' + value + '">';
+            html += '<td data-num=' + j + ' ' + lit + ' class="' + value + '">';
             $.each(colors, function(k, color) {
                 html += '<div class="' + color + '">'
                 $.each(shapes, function(l, shape) {
@@ -113,6 +113,22 @@ var flipExtendedPlus = function(el) {
     flip($('td[data-num=' + tdnum + ']'));
 };
 
+var flipExtendedX = function(el) {
+    var td = $(el).closest('td');
+    var tr = $(el).closest('td').parent();
+    var tdnum = parseInt(td.attr('data-num'));
+    var trnum = parseInt(tr.attr('data-num'));
+
+    flip(td);
+    $.each(Array(8), function(i, n) {
+        j = i + 1;
+        flip($('tr[data-num=' + (trnum - j) + '] td[data-num=' + (tdnum - j) + ']'));
+        flip($('tr[data-num=' + (trnum + j) + '] td[data-num=' + (tdnum - j) + ']'));
+        flip($('tr[data-num=' + (trnum - j) + '] td[data-num=' + (tdnum + j) + ']'));
+        flip($('tr[data-num=' + (trnum + j) + '] td[data-num=' + (tdnum + j) + ']'));
+    });
+};
+
 $(function() {
     makeTable(data, content);
 
@@ -129,6 +145,11 @@ $(function() {
     $('.red .tetra').click(function(e) {
         e.preventDefault();
         flipPlus(this);
+    });
+
+    $('.blue .cube').click(function(e) {
+        e.preventDefault();
+        flipExtendedX(this);
     });
 
     $('.blue .tetra').click(function(e) {
