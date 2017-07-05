@@ -64,6 +64,10 @@ var getCell = function(row, col) {
 }
 
 var flip = function(el, color) {
+    $(el).toggleClass(color);
+};
+
+var flipOne = function(el, color) {
     $(el).closest('td').toggleClass(color);
 };
 
@@ -182,6 +186,21 @@ var flipBetween = function(el) {
     var tdnum = parseInt(td.attr('data-num'));
     var trnum = parseInt(tr.attr('data-num'));
 
+    var dotsInRow = tr.find('[data-shape=blue-sphere]').toArray();
+    var column = $('td[data-num=' + tdnum + ']').toArray();
+    var dotsInCol = $('td[data-num=' + tdnum + '][data-shape=blue-sphere]');
+
+    dotsInRow.pop();
+    $.each(dotsInRow, function(i, dot) {
+        flip($(dot).nextUntil('[data-shape=blue-sphere]'), 'b');
+    });
+
+    if (dotsInCol.length > 1) {
+        var relevant = column.slice($(dotsInCol[0]).parent().attr('data-num'), parseInt($(dotsInCol[1]).parent().attr('data-num')) - 1);
+        $.each(relevant, function (i, panel) {
+            flip(panel, 'b');
+        });
+    }
 };
 
 var elements = [];
@@ -222,7 +241,7 @@ $(function() {
     $('.red .sphere').click(function(e) {
         e.preventDefault();
         shape(this, 'red-sphere');
-        flip(this, 'r');
+        flipOne(this, 'r');
     });
 
     $('.red .cube').click(function(e) {
