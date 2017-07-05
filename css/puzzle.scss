@@ -125,12 +125,14 @@ COLORS
 .x {}
 .b { background-color: blue; }
 .r { background-color: red; }
-.g { background-color: green; }
 .y { background-color: yellow; }
+
+.g, .y.b { background-color: #01a611; }
+.p, .r.b { background-color: lighten(purple, 10%); }
+.o, .r.y { background-color: orange; }
+
 .m { background-color: magenta; }
 .c { background-color: cyan; }
-.p { background-color: Fuchsia; }
-.o { background-color: orange; }
 .w { background-color: white; }
 .k { background-color: black; }
 

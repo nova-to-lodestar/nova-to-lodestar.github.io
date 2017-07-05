@@ -65,86 +65,86 @@ var getCell = function(row, col) {
     return $('tr[data-num=' + row + '] td[data-num=' + col + ']');
 }
 
-var flip = function(el) {
-    $(el).toggleClass(toggleColor);
+var flip = function(el, color) {
+    $(el).toggleClass(color);
 };
 
-var flipPlus = function(el) {
+var flipPlus = function(el, color) {
     var td = $(el).closest('td');
     var tr = $(el).closest('td').parent();
     var tdnum = td.index();
     var trnum = tr.index();
 
-    flip(td);
-    flip(td.next());
-    flip(td.prev());
-    flip(tr.prev().find('td')[tdnum]);
-    flip(tr.next().find('td')[tdnum]);
+    flip(td, color);
+    flip(td.next(), color);
+    flip(td.prev(), color);
+    flip(tr.prev().find('td')[tdnum], color);
+    flip(tr.next().find('td')[tdnum], color);
 };
 
-var flipX = function(el) {
+var flipX = function(el, color) {
     var td = $(el).closest('td');
     var tr = $(el).closest('td').parent();
     var tdnum = td.index();
     var trnum = tr.index();
 
-    flip(td);
-    flip(tr.prev().find('td')[tdnum-1]);
-    flip(tr.prev().find('td')[tdnum+1]);
-    flip(tr.next().find('td')[tdnum-1]);
-    flip(tr.next().find('td')[tdnum+1]);
+    flip(td, color);
+    flip(tr.prev().find('td')[tdnum-1], color);
+    flip(tr.prev().find('td')[tdnum+1], color);
+    flip(tr.next().find('td')[tdnum-1], color);
+    flip(tr.next().find('td')[tdnum+1], color);
 };
 
-var flipRing = function(el) {
+var flipRing = function(el, color) {
     var td = $(el).closest('td');
     var tr = $(el).closest('td').parent();
     var tdnum = td.index();
     var trnum = tr.index();
 
-    flip(td.next());
-    flip(td.prev());
-    flip(tr.prev().find('td')[tdnum]);
-    flip(tr.next().find('td')[tdnum]);
-    flip(tr.prev().find('td')[tdnum-1]);
-    flip(tr.prev().find('td')[tdnum+1]);
-    flip(tr.next().find('td')[tdnum-1]);
-    flip(tr.next().find('td')[tdnum+1]);
+    flip(td.next(), color);
+    flip(td.prev(), color);
+    flip(tr.prev().find('td')[tdnum], color);
+    flip(tr.next().find('td')[tdnum], color);
+    flip(tr.prev().find('td')[tdnum-1], color);
+    flip(tr.prev().find('td')[tdnum+1], color);
+    flip(tr.next().find('td')[tdnum-1], color);
+    flip(tr.next().find('td')[tdnum+1], color);
 };
 
-var flipExtendedPlus = function(el) {
+var flipExtendedPlus = function(el, color) {
     var td = $(el).closest('td');
     var tr = $(el).closest('td').parent();
     var tdnum = td.attr('data-num');
 
-    flip(td.siblings());
-    flip($('td[data-num=' + tdnum + ']'));
+    flip(td.siblings(), color);
+    flip($('td[data-num=' + tdnum + ']'), color);
 };
 
-var flipExtendedX = function(el) {
+var flipExtendedX = function(el, color) {
     var td = $(el).closest('td');
     var tr = $(el).closest('td').parent();
     var tdnum = parseInt(td.attr('data-num'));
     var trnum = parseInt(tr.attr('data-num'));
 
-    flip(td);
+    flip(td, color);
     $.each(Array(8), function(i, n) {
-        flip($('tr[data-num=' + (trnum - i) + '] td[data-num=' + (tdnum - i) + ']'));
-        flip($('tr[data-num=' + (trnum + i) + '] td[data-num=' + (tdnum - i) + ']'));
-        flip($('tr[data-num=' + (trnum - i) + '] td[data-num=' + (tdnum + i) + ']'));
-        flip($('tr[data-num=' + (trnum + i) + '] td[data-num=' + (tdnum + i) + ']'));
+        flip($('tr[data-num=' + (trnum - i) + '] td[data-num=' + (tdnum - i) + ']'), color);
+        flip($('tr[data-num=' + (trnum + i) + '] td[data-num=' + (tdnum - i) + ']'), color);
+        flip($('tr[data-num=' + (trnum - i) + '] td[data-num=' + (tdnum + i) + ']'), color);
+        flip($('tr[data-num=' + (trnum + i) + '] td[data-num=' + (tdnum + i) + ']'), color);
     });
 };
 
-var flipOpposite = function(el) {
+var flipOpposite = function(el, color) {
     var td = $(el).closest('td');
     var tr = $(el).closest('td').parent();
     var tdnum = parseInt(td.attr('data-num'));
     var trnum = parseInt(tr.attr('data-num'));
 
-    flip($('tr[data-num=' + (8-trnum+1) + '] td[data-num=' + (8-tdnum+1) + ']'));
+    flip($('tr[data-num=' + (8-trnum+1) + '] td[data-num=' + (8-tdnum+1) + ']'), color);
 };
 
-var rotateRing = function(el) {
+var rotateRing = function(el, color) {
     var td = $(el).closest('td');
     var tr = $(el).closest('td').parent();
     var tdnum = parseInt(td.attr('data-num'));
@@ -152,31 +152,39 @@ var rotateRing = function(el) {
 
     states = [
         [
-            $('tr[data-num=' + (trnum - 1) + '] td[data-num=' + (tdnum - 1) + ']').hasClass(toggleColor),
-            $('tr[data-num=' + (trnum - 1) + '] td[data-num=' + (tdnum) + ']').hasClass(toggleColor),
-            $('tr[data-num=' + (trnum - 1) + '] td[data-num=' + (tdnum + 1) + ']').hasClass(toggleColor)
+            $('tr[data-num=' + (trnum - 1) + '] td[data-num=' + (tdnum - 1) + ']').attr('class'),
+            $('tr[data-num=' + (trnum - 1) + '] td[data-num=' + (tdnum) + ']').attr('class'),
+            $('tr[data-num=' + (trnum - 1) + '] td[data-num=' + (tdnum + 1) + ']').attr('class')
         ],
         [
-            td.prev().hasClass(toggleColor),
-            td.hasClass(toggleColor),
-            td.next().hasClass(toggleColor)
+            td.prev().attr('class'),
+            td.attr('class'),
+            td.next().attr('class')
         ],
         [
-            $('tr[data-num=' + (trnum + 1) + '] td[data-num=' + (tdnum - 1) + ']').hasClass(toggleColor),
-            $('tr[data-num=' + (trnum + 1) + '] td[data-num=' + (tdnum) + ']').hasClass(toggleColor),
-            $('tr[data-num=' + (trnum + 1) + '] td[data-num=' + (tdnum + 1) + ']').hasClass(toggleColor)
+            $('tr[data-num=' + (trnum + 1) + '] td[data-num=' + (tdnum - 1) + ']').attr('class'),
+            $('tr[data-num=' + (trnum + 1) + '] td[data-num=' + (tdnum) + ']').attr('class'),
+            $('tr[data-num=' + (trnum + 1) + '] td[data-num=' + (tdnum + 1) + ']').attr('class')
         ]
     ]
 
-    $('tr[data-num=' + (trnum - 1) + '] td[data-num=' + (tdnum - 1) + ']').toggleClass(toggleColor, states[2][2]);
-    $('tr[data-num=' + (trnum - 1) + '] td[data-num=' + (tdnum) + ']').toggleClass(toggleColor, states[2][1]);
-    $('tr[data-num=' + (trnum - 1) + '] td[data-num=' + (tdnum + 1) + ']').toggleClass(toggleColor, states[2][0]);
-    td.prev().toggleClass(toggleColor, states[1][2]);
-    td.next().toggleClass(toggleColor, states[1][0]);
-    $('tr[data-num=' + (trnum + 1) + '] td[data-num=' + (tdnum - 1) + ']').toggleClass(toggleColor, states[0][2]),
-    $('tr[data-num=' + (trnum + 1) + '] td[data-num=' + (tdnum) + ']').toggleClass(toggleColor, states[0][1]),
-    $('tr[data-num=' + (trnum + 1) + '] td[data-num=' + (tdnum + 1) + ']').toggleClass(toggleColor, states[0][0])
+    $('tr[data-num=' + (trnum - 1) + '] td[data-num=' + (tdnum - 1) + ']').attr('class', states[2][2]);
+    $('tr[data-num=' + (trnum - 1) + '] td[data-num=' + (tdnum) + ']').attr('class', states[2][1]);
+    $('tr[data-num=' + (trnum - 1) + '] td[data-num=' + (tdnum + 1) + ']').attr('class', states[2][0]);
+    td.prev().attr('class', states[1][2]);
+    td.next().attr('class', states[1][0]);
+    $('tr[data-num=' + (trnum + 1) + '] td[data-num=' + (tdnum - 1) + ']').attr('class', states[0][2]),
+    $('tr[data-num=' + (trnum + 1) + '] td[data-num=' + (tdnum) + ']').attr('class', states[0][1]),
+    $('tr[data-num=' + (trnum + 1) + '] td[data-num=' + (tdnum + 1) + ']').attr('class', states[0][0])
 }
+
+var flipBetween = function(el) {
+    var td = $(el).closest('td');
+    var tr = $(el).closest('td').parent();
+    var tdnum = parseInt(td.attr('data-num'));
+    var trnum = parseInt(tr.attr('data-num'));
+
+};
 
 var elements = [];
 
@@ -203,46 +211,46 @@ $(function() {
 
     $('.red .sphere').click(function(e) {
         e.preventDefault();
-        flip($(this).closest('td'));
+        flip($(this).closest('td'), 'r');
     });
 
     $('.red .cube').click(function(e) {
         e.preventDefault();
-        flipX(this);
+        flipX(this, 'r');
     });
 
     $('.red .tetra').click(function(e) {
         e.preventDefault();
-        flipPlus(this);
+        flipPlus(this, 'r');
     });
 
     $('.blue .sphere').click(function(e) {
         e.preventDefault();
-        flip($(this).closest('td'));
+        flipBetween(this, 'b');
     });
 
     $('.blue .cube').click(function(e) {
         e.preventDefault();
-        flipExtendedX(this);
+        flipExtendedX(this, 'b');
     });
 
     $('.blue .tetra').click(function(e) {
         e.preventDefault();
-        flipExtendedPlus(this);
+        flipExtendedPlus(this, 'b');
     });
 
     $('.yellow .sphere').click(function(e) {
         e.preventDefault();
-        flipRing(this);
+        flipRing(this, 'y');
     });
 
     $('.yellow .cube').click(function(e) {
         e.preventDefault();
-        flipOpposite(this);
+        flipOpposite(this, 'y');
     });
 
     $('.yellow .tetra').click(function(e) {
         e.preventDefault();
-        rotateRing(this);
+        rotateRing(this, 'y');
     });
 });
