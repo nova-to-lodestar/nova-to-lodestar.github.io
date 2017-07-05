@@ -63,8 +63,8 @@ var flip = function(el) {
 };
 
 var flipPlus = function(el) {
-    var td = $(el).parent();
-    var tr = $(el).parent().parent();
+    var td = $(el).closest('td');
+    var tr = $(el).closest('td').parent();
     var tdnum = td.index();
     var trnum = tr.index();
 
@@ -76,8 +76,8 @@ var flipPlus = function(el) {
 };
 
 var flipX = function(el) {
-    var td = $(el).parent();
-    var tr = $(el).parent().parent();
+    var td = $(el).closest('td');
+    var tr = $(el).closest('td').parent();
     var tdnum = td.index();
     var trnum = tr.index();
 
@@ -93,7 +93,7 @@ $(function() {
 
     $('a.sphere').click(function(e) {
         e.preventDefault();
-        flip($(this).parent());
+        flip($(this).closest('td'));
     });
 
     $('a.cube').click(function(e) {
