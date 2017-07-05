@@ -88,21 +88,42 @@ var flipX = function(el) {
     flip(tr.next().find('td')[tdnum+1]);
 };
 
+var flipPerimeter = function(el) {
+    var td = $(el).closest('td');
+    var tr = $(el).closest('td').parent();
+    var tdnum = td.index();
+    var trnum = tr.index();
+
+    flip(td.next());
+    flip(td.prev());
+    flip(tr.prev().find('td')[tdnum]);
+    flip(tr.next().find('td')[tdnum]);
+    flip(tr.prev().find('td')[tdnum-1]);
+    flip(tr.prev().find('td')[tdnum+1]);
+    flip(tr.next().find('td')[tdnum-1]);
+    flip(tr.next().find('td')[tdnum+1]);
+};
+
 $(function() {
     makeTable(data, content);
 
-    $('a.sphere').click(function(e) {
+    $('.red .sphere').click(function(e) {
         e.preventDefault();
         flip($(this).closest('td'));
     });
 
-    $('a.cube').click(function(e) {
+    $('.red .cube').click(function(e) {
         e.preventDefault();
         flipX(this);
     });
 
-    $('a.tetra').click(function(e) {
+    $('.red .tetra').click(function(e) {
         e.preventDefault();
         flipPlus(this);
+    });
+
+    $('.yellow .sphere').click(function(e) {
+        e.preventDefault();
+        flipPerimeter(this);
     });
 });
