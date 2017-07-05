@@ -40,7 +40,7 @@ var makeTable = function(classes, content) {
             }
             // lit = lights[i][j] ? "data-lit" : "";
             lit = "";
-            html += '<td ' + lit + ' class="' + value + '">';
+            html += '<td data-num="' + j + '" ' + lit + ' class="' + value + '">';
             $.each(colors, function(k, color) {
                 html += '<div class="' + color + '">'
                 $.each(shapes, function(l, shape) {
@@ -104,6 +104,15 @@ var flipPerimeter = function(el) {
     flip(tr.next().find('td')[tdnum+1]);
 };
 
+var flipExtendedPlus = function(el) {
+    var td = $(el).closest('td');
+    var tr = $(el).closest('td').parent();
+    var tdnum = td.attr('data-num');
+
+    flip(td.siblings());
+    flip($('td[data-num=' + tdnum + ']'));
+};
+
 $(function() {
     makeTable(data, content);
 
@@ -120,6 +129,11 @@ $(function() {
     $('.red .tetra').click(function(e) {
         e.preventDefault();
         flipPlus(this);
+    });
+
+    $('.blue .tetra').click(function(e) {
+        e.preventDefault();
+        flipExtendedPlus(this);
     });
 
     $('.yellow .sphere').click(function(e) {
