@@ -32,7 +32,7 @@ var shapes = [
 var makeTable = function(classes, content) {
     var html = '<table>';
     $.each(classes, function(i, value) {
-        html += '<tr data-num=' + i + '>';
+        html += '<tr data-num=' + (i + 1) + '>';
         $.each(value, function(j, value) {
             text = "";
             if (content != null) {
@@ -40,7 +40,7 @@ var makeTable = function(classes, content) {
             }
             // lit = lights[i][j] ? "data-lit" : "";
             lit = "";
-            html += '<td data-num=' + j + ' ' + lit + ' class="' + value + '">';
+            html += '<td data-num=' + (j + 1) + ' ' + lit + ' class="' + value + '">';
             $.each(colors, function(k, color) {
                 html += '<div class="' + color + '">'
                 $.each(shapes, function(l, shape) {
@@ -121,13 +121,22 @@ var flipExtendedX = function(el) {
 
     flip(td);
     $.each(Array(8), function(i, n) {
-        j = i + 1;
-        flip($('tr[data-num=' + (trnum - j) + '] td[data-num=' + (tdnum - j) + ']'));
-        flip($('tr[data-num=' + (trnum + j) + '] td[data-num=' + (tdnum - j) + ']'));
-        flip($('tr[data-num=' + (trnum - j) + '] td[data-num=' + (tdnum + j) + ']'));
-        flip($('tr[data-num=' + (trnum + j) + '] td[data-num=' + (tdnum + j) + ']'));
+        flip($('tr[data-num=' + (trnum - i) + '] td[data-num=' + (tdnum - i) + ']'));
+        flip($('tr[data-num=' + (trnum + i) + '] td[data-num=' + (tdnum - i) + ']'));
+        flip($('tr[data-num=' + (trnum - i) + '] td[data-num=' + (tdnum + i) + ']'));
+        flip($('tr[data-num=' + (trnum + i) + '] td[data-num=' + (tdnum + i) + ']'));
     });
 };
+
+var flipOpposite = function(el) {
+    var td = $(el).closest('td');
+    var tr = $(el).closest('td').parent();
+    var tdnum = parseInt(td.attr('data-num'));
+    var trnum = parseInt(tr.attr('data-num'));
+
+    flip($('tr[data-num=' + (8-trnum+1) + '] td[data-num=' + (8-tdnum+1) + ']'));
+};
+
 
 $(function() {
     makeTable(data, content);
@@ -160,5 +169,10 @@ $(function() {
     $('.yellow .sphere').click(function(e) {
         e.preventDefault();
         flipPerimeter(this);
+    });
+
+    $('.yellow .cube').click(function(e) {
+        e.preventDefault();
+        flipOpposite(this);
     });
 });
