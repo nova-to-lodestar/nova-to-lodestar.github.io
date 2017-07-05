@@ -1,6 +1,3 @@
----
----
-
 html, body {
     height: 100%;
 }
@@ -77,9 +74,11 @@ td {
     }
 
     &:hover {
-        .shape {
-            opacity: 1;
-            display: inline-block;
+        &[data-shape=''] {
+            .shape {
+                opacity: 1;
+                display: inline-block;
+            }
         }
     }
 }

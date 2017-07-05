@@ -41,7 +41,7 @@ var makeTable = function(classes, content) {
             if (content != null) {
                 text = content[i][j];
             }
-            html += '<td data-num=' + (j + 1) + ' ' + ' class="' + value + '">';
+            html += '<td data-num=' + (j + 1) + ' ' + ' class="' + value + '" data-shape="">';
             $.each(colors, function(k, color) {
                 html += '<div class="' + color + '">'
                 $.each(shapes, function(l, shape) {
@@ -199,7 +199,13 @@ var yellowCube = function(r, c) { flipOpposite(getCell(r, c), 'y'); elements.pus
 var yellowTetra = function(r, c) { rotateRing(getCell(r, c), 'y'); elements.push('tetra')};
 
 var shape = function(el, shape) {
-    $(el).closest('td').attr('data-shape', shape)
+    var el = $(el).closest('td');
+    if (el.attr('data-shape')) {
+        el.attr('data-shape', '');
+        return false;
+    }
+    el.attr('data-shape', shape);
+    return true;
 };
 
 $(function() {

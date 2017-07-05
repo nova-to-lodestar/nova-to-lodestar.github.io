@@ -1,0 +1,582 @@
+html, body {
+  height: 100%; }
+
+html {
+  font-size: 18px; }
+
+body {
+  line-height: 1.5;
+  color: #333;
+  padding: 0;
+  margin: 0; }
+
+html, body {
+  height: 100%; }
+
+.nav {
+  background: #333;
+  height: 4%; }
+  .nav a {
+    display: block;
+    height: 100%; }
+    .nav a:hover {
+      background: #555; }
+
+#elements {
+  color: #bbb; }
+
+.container {
+  height: 96%; }
+
+table {
+  font-family: arial, sans-serif;
+  color: #00ffff;
+  font-size: 64pt;
+  width: 100%;
+  height: 100%;
+  border-collapse: collapse; }
+
+td {
+  border: 3px solid #777;
+  text-align: center;
+  background-image: url("/img/panel.png");
+  background-color: #777;
+  background-size: cover;
+  background-position: center center; }
+
+tr {
+  height: 12.5%; }
+
+td {
+  width: 12.5%;
+  font-size: 0; }
+  td[data-lit] {
+    background-color: white; }
+  td:hover[data-shape=''] .shape {
+    opacity: 1;
+    display: inline-block; }
+
+.shape {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  text-decoration: none;
+  background: white;
+  margin: 5px 3px;
+  opacity: 0; }
+
+#elements .shape {
+  margin: .5em;
+  opacity: 1; }
+
+.sphere {
+  border-radius: 50%; }
+
+.tetra {
+  width: 0;
+  height: 0;
+  border-left: 14.3px solid transparent;
+  border-right: 14.3px solid transparent;
+  border-bottom: 22px solid white;
+  background: none !important; }
+
+.red .shape {
+  background: red;
+  border-bottom-color: red; }
+
+.blue .shape {
+  background: blue;
+  border-bottom-color: blue; }
+
+.yellow .shape {
+  background: yellow;
+  border-bottom-color: yellow; }
+
+[data-shape] .shape {
+  opacity: 0; }
+
+[data-shape=red-sphere] .red .sphere,
+[data-shape=red-tetra] .red .tetra,
+[data-shape=red-cube] .red .cube,
+[data-shape=blue-sphere] .blue .sphere,
+[data-shape=blue-tetra] .blue .tetra,
+[data-shape=blue-cube] .blue .cube,
+[data-shape=yellow-sphere] .yellow .sphere,
+[data-shape=yellow-tetra] .yellow .tetra,
+[data-shape=yellow-cube] .yellow .cube {
+  opacity: 1; }
+
+/*===============
+COLORS
+===============*/
+.b {
+  background-color: blue; }
+
+.r {
+  background-color: red; }
+
+.y {
+  background-color: yellow; }
+
+.g, .y.b {
+  background-color: #01a611; }
+
+.p, .r.b {
+  background-color: #b300b3; }
+
+.o, .r.y {
+  background-color: orange; }
+
+.m {
+  background-color: magenta; }
+
+.c {
+  background-color: cyan; }
+
+.w {
+  background-color: white; }
+
+.k {
+  background-color: black; }
+
+/*=============== BLINKING ===============*/
+@keyframes blink1 {
+  16.6666666667% {
+    background-color: cyan; }
+  33.3333333333% {
+    background-color: #777; }
+  100% {
+    background-color: #777; } }
+
+.blink1 {
+  animation: blink1 1.5s ease infinite; }
+
+@keyframes blink2 {
+  12.5% {
+    background-color: cyan; }
+  25% {
+    background-color: #777; }
+  37.5% {
+    background-color: cyan; }
+  50% {
+    background-color: #777; }
+  100% {
+    background-color: #777; } }
+
+.blink2 {
+  animation: blink2 2s ease infinite; }
+
+@keyframes blink3 {
+  9.6% {
+    background-color: cyan; }
+  19.2% {
+    background-color: #777; }
+  28.8% {
+    background-color: cyan; }
+  38.4% {
+    background-color: #777; }
+  48% {
+    background-color: cyan; }
+  57.6% {
+    background-color: #777; }
+  100% {
+    background-color: #777; } }
+
+.blink3 {
+  animation: blink3 2.5s ease infinite; }
+
+@keyframes blink4 {
+  8% {
+    background-color: cyan; }
+  16.6666666667% {
+    background-color: #777; }
+  24.6666666667% {
+    background-color: cyan; }
+  33.3333333333% {
+    background-color: #777; }
+  41.3333333333% {
+    background-color: cyan; }
+  50% {
+    background-color: #777; }
+  58% {
+    background-color: cyan; }
+  66.6666666667% {
+    background-color: #777; }
+  100% {
+    background-color: #777; } }
+
+.blink4 {
+  animation: blink4 3s ease infinite; }
+
+@keyframes blink5 {
+  7.1428571429% {
+    background-color: cyan; }
+  14.2857142857% {
+    background-color: #777; }
+  21.4285714286% {
+    background-color: cyan; }
+  28.5714285714% {
+    background-color: #777; }
+  35.7142857143% {
+    background-color: cyan; }
+  42.8571428571% {
+    background-color: #777; }
+  50% {
+    background-color: cyan; }
+  57.1428571429% {
+    background-color: #777; }
+  64.2857142857% {
+    background-color: cyan; }
+  71.4285714286% {
+    background-color: #777; }
+  100% {
+    background-color: #777; } }
+
+.blink5 {
+  animation: blink5 3.5s ease infinite; }
+
+@keyframes blink6 {
+  6% {
+    background-color: cyan; }
+  12% {
+    background-color: #777; }
+  18% {
+    background-color: cyan; }
+  24% {
+    background-color: #777; }
+  30% {
+    background-color: cyan; }
+  36% {
+    background-color: #777; }
+  42% {
+    background-color: cyan; }
+  48% {
+    background-color: #777; }
+  54% {
+    background-color: cyan; }
+  60% {
+    background-color: #777; }
+  66% {
+    background-color: cyan; }
+  72% {
+    background-color: #777; }
+  100% {
+    background-color: #777; } }
+
+.blink6 {
+  animation: blink6 4s ease infinite; }
+
+/*===============
+NUMBERS
+===============*/
+.n0 {
+  background-image: url("/img/numbers/n0.png");
+  background-color: Fuchsia; }
+
+.n1 {
+  background-image: url("/img/numbers/n1.png");
+  background-color: Fuchsia; }
+
+.n2 {
+  background-image: url("/img/numbers/n2.png");
+  background-color: Fuchsia; }
+
+.n3 {
+  background-image: url("/img/numbers/n3.png");
+  background-color: Fuchsia; }
+
+.n4 {
+  background-image: url("/img/numbers/n4.png");
+  background-color: Fuchsia; }
+
+.n5 {
+  background-image: url("/img/numbers/n5.png");
+  background-color: Fuchsia; }
+
+.n6 {
+  background-image: url("/img/numbers/n6.png");
+  background-color: Fuchsia; }
+
+.n7 {
+  background-image: url("/img/numbers/n7.png");
+  background-color: Fuchsia; }
+
+.n8 {
+  background-image: url("/img/numbers/n8.png");
+  background-color: Fuchsia; }
+
+.n9 {
+  background-image: url("/img/numbers/n9.png");
+  background-color: Fuchsia; }
+
+.n10 {
+  background-image: url("/img/numbers/n10.png");
+  background-color: Fuchsia; }
+
+.n11 {
+  background-image: url("/img/numbers/n11.png");
+  background-color: Fuchsia; }
+
+.n12 {
+  background-image: url("/img/numbers/n12.png");
+  background-color: Fuchsia; }
+
+.n16 {
+  background-image: url("/img/numbers/n16.png");
+  background-color: Fuchsia; }
+
+.w8 {
+  background-image: url("/img/numbers/n8.png");
+  background-color: white; }
+
+/*===============
+SHADING
+===============*/
+.bg_shading_1 {
+  background-image: url("/img/shading/1.jpg"); }
+
+.bg_shading_2 {
+  background-image: url("/img/shading/2.jpg"); }
+
+.bg_shading_3 {
+  background-image: url("/img/shading/3.jpg"); }
+
+.bg_shading_4 {
+  background-image: url("/img/shading/4.jpg"); }
+
+.bg_shading_5 {
+  background-image: url("/img/shading/5.jpg"); }
+
+.bg_shading_6 {
+  background-image: url("/img/shading/6.jpg"); }
+
+/*===============
+BLINKING
+===============*/
+@keyframes blinkcyan {
+  5% {
+    background-color: cyan; }
+  10% {
+    background-color: #777; } }
+
+@keyframes blinkmagenta {
+  5% {
+    background-color: magenta; }
+  10% {
+    background-color: #777; } }
+
+@keyframes blinkred {
+  5% {
+    background-color: red; }
+  10% {
+    background-color: #777; } }
+
+@keyframes blinkyellow {
+  5% {
+    background-color: yellow; }
+  10% {
+    background-color: #777; } }
+
+.s0 {
+  animation: blinkcyan 4s 0s ease infinite; }
+
+.s1 {
+  animation: blinkcyan 4s .25s ease infinite; }
+
+.s2 {
+  animation: blinkcyan 4s .5s ease infinite; }
+
+.s3 {
+  animation: blinkcyan 4s .75s ease infinite; }
+
+.s4 {
+  animation: blinkcyan 4s 1s ease infinite; }
+
+.s5 {
+  animation: blinkcyan 4s 1.25s ease infinite; }
+
+.s6 {
+  animation: blinkcyan 4s 1.5s ease infinite; }
+
+.s7 {
+  animation: blinkcyan 4s 1.75s ease infinite; }
+
+.s8 {
+  animation: blinkcyan 4s 2s ease infinite; }
+
+.s9 {
+  animation: blinkcyan 4s 2.25s ease infinite; }
+
+.s10 {
+  animation: blinkcyan 4s 2.5s ease infinite; }
+
+.s11 {
+  animation: blinkcyan 4s 2.75s ease infinite; }
+
+.s12 {
+  animation: blinkcyan 4s 3s ease infinite; }
+
+.s13 {
+  animation: blinkcyan 4s 3.25s ease infinite; }
+
+.s14 {
+  animation: blinkcyan 4s 3.5s ease infinite; }
+
+.s15 {
+  animation: blinkcyan 4s 3.75s ease infinite; }
+
+.s16 {
+  animation: blinkcyan 4s 4s ease infinite; }
+
+.y0 {
+  animation: blinkyellow 4s 0s ease infinite; }
+
+.y1 {
+  animation: blinkyellow 4s .25s ease infinite; }
+
+.y2 {
+  animation: blinkyellow 4s .5s ease infinite; }
+
+.y3 {
+  animation: blinkyellow 4s .75s ease infinite; }
+
+.y4 {
+  animation: blinkyellow 4s 1s ease infinite; }
+
+.y5 {
+  animation: blinkyellow 4s 1.25s ease infinite; }
+
+.y6 {
+  animation: blinkyellow 4s 1.5s ease infinite; }
+
+.y7 {
+  animation: blinkyellow 4s 1.75s ease infinite; }
+
+.y8 {
+  animation: blinkyellow 4s 2s ease infinite; }
+
+.y9 {
+  animation: blinkyellow 4s 2.25s ease infinite; }
+
+.y10 {
+  animation: blinkyellow 4s 2.5s ease infinite; }
+
+.y11 {
+  animation: blinkyellow 4s 2.75s ease infinite; }
+
+.y12 {
+  animation: blinkyellow 4s 3s ease infinite; }
+
+.y13 {
+  animation: blinkyellow 4s 3.25s ease infinite; }
+
+.y14 {
+  animation: blinkyellow 4s 3.5s ease infinite; }
+
+.y15 {
+  animation: blinkyellow 4s 3.75s ease infinite; }
+
+.y16 {
+  animation: blinkyellow 4s 4s ease infinite; }
+
+.m0 {
+  animation: blinkmagenta 4s 0s ease infinite; }
+
+.m1 {
+  animation: blinkmagenta 4s .25s ease infinite; }
+
+.m2 {
+  animation: blinkmagenta 4s .5s ease infinite; }
+
+.m3 {
+  animation: blinkmagenta 4s .75s ease infinite; }
+
+.m4 {
+  animation: blinkmagenta 4s 1s ease infinite; }
+
+.m5 {
+  animation: blinkmagenta 4s 1.25s ease infinite; }
+
+.m6 {
+  animation: blinkmagenta 4s 1.5s ease infinite; }
+
+.m7 {
+  animation: blinkmagenta 4s 1.75s ease infinite; }
+
+.m8 {
+  animation: blinkmagenta 4s 2s ease infinite; }
+
+.m9 {
+  animation: blinkmagenta 4s 2.25s ease infinite; }
+
+.m10 {
+  animation: blinkmagenta 4s 2.5s ease infinite; }
+
+.m11 {
+  animation: blinkmagenta 4s 2.75s ease infinite; }
+
+.m12 {
+  animation: blinkmagenta 4s 3s ease infinite; }
+
+.m13 {
+  animation: blinkmagenta 4s 3.25s ease infinite; }
+
+.m14 {
+  animation: blinkmagenta 4s 3.5s ease infinite; }
+
+.m15 {
+  animation: blinkmagenta 4s 3.75s ease infinite; }
+
+.m16 {
+  animation: blinkmagenta 4s 4s ease infinite; }
+
+.r0 {
+  animation: blinkred 4s 0s ease infinite; }
+
+.r1 {
+  animation: blinkred 4s .25s ease infinite; }
+
+.r2 {
+  animation: blinkred 4s .5s ease infinite; }
+
+.r3 {
+  animation: blinkred 4s .75s ease infinite; }
+
+.r4 {
+  animation: blinkred 4s 1s ease infinite; }
+
+.r5 {
+  animation: blinkred 4s 1.25s ease infinite; }
+
+.r6 {
+  animation: blinkred 4s 1.5s ease infinite; }
+
+.r7 {
+  animation: blinkred 4s 1.75s ease infinite; }
+
+.r8 {
+  animation: blinkred 4s 2s ease infinite; }
+
+.r9 {
+  animation: blinkred 4s 2.25s ease infinite; }
+
+.r10 {
+  animation: blinkred 4s 2.5s ease infinite; }
+
+.r11 {
+  animation: blinkred 4s 2.75s ease infinite; }
+
+.r12 {
+  animation: blinkred 4s 3s ease infinite; }
+
+.r13 {
+  animation: blinkred 4s 3.25s ease infinite; }
+
+.r14 {
+  animation: blinkred 4s 3.5s ease infinite; }
+
+.r15 {
+  animation: blinkred 4s 3.75s ease infinite; }
+
+.r16 {
+  animation: blinkred 4s 4s ease infinite; }
