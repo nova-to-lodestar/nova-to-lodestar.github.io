@@ -8,6 +8,7 @@
 
 var content = null;
 var setupGrid = function() {};
+var ready = false;
 
 var data = [
     ["","","","","","","",""],
@@ -66,7 +67,8 @@ var getCell = function(row, col) {
 var flip = function(el, color) {
     $(el).toggleClass(color);
 
-    if ($('td.r, td.b, td.y').length == 0) {
+    if (ready && $('td.r, td.b, td.y').length == 0) {
+        console.log(ready);
         var audioElement = document.createElement('audio');
         audioElement.setAttribute('src', '/mp3/done.mp3');
         audioElement.setAttribute('autoplay', 'autoplay');
@@ -245,6 +247,8 @@ $(function() {
         els += '<span class="shape ' + shape + '" href="#"></span>';
     });
     $('#elements').html(els);
+
+    ready = true;
 
     $('.red .sphere').click(function(e) {
         e.preventDefault();
