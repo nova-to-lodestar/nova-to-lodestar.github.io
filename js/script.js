@@ -137,6 +137,41 @@ var flipOpposite = function(el) {
     flip($('tr[data-num=' + (8-trnum+1) + '] td[data-num=' + (8-tdnum+1) + ']'));
 };
 
+var rotatePerimeter = function(el) {
+    var td = $(el).closest('td');
+    var tr = $(el).closest('td').parent();
+    var tdnum = parseInt(td.attr('data-num'));
+    var trnum = parseInt(tr.attr('data-num'));
+
+    states = [
+        [
+            $('tr[data-num=' + (trnum - 1) + '] td[data-num=' + (tdnum - 1) + ']').hasClass(toggleColor),
+            $('tr[data-num=' + (trnum - 1) + '] td[data-num=' + (tdnum) + ']').hasClass(toggleColor),
+            $('tr[data-num=' + (trnum - 1) + '] td[data-num=' + (tdnum + 1) + ']').hasClass(toggleColor)
+        ],
+        [
+            td.prev().hasClass(toggleColor),
+            td.hasClass(toggleColor),
+            td.next().hasClass(toggleColor)
+        ],
+        [
+            $('tr[data-num=' + (trnum + 1) + '] td[data-num=' + (tdnum - 1) + ']').hasClass(toggleColor),
+            $('tr[data-num=' + (trnum + 1) + '] td[data-num=' + (tdnum) + ']').hasClass(toggleColor),
+            $('tr[data-num=' + (trnum + 1) + '] td[data-num=' + (tdnum + 1) + ']').hasClass(toggleColor)
+        ]
+    ]
+
+    $('tr[data-num=' + (trnum - 1) + '] td[data-num=' + (tdnum - 1) + ']').toggleClass(toggleColor, states[2][2]);
+    $('tr[data-num=' + (trnum - 1) + '] td[data-num=' + (tdnum) + ']').toggleClass(toggleColor, states[2][1]);
+    $('tr[data-num=' + (trnum - 1) + '] td[data-num=' + (tdnum + 1) + ']').toggleClass(toggleColor, states[2][0]);
+    td.prev().toggleClass(toggleColor, states[1][2]);
+    td.next().toggleClass(toggleColor, states[1][0]);
+    $('tr[data-num=' + (trnum + 1) + '] td[data-num=' + (tdnum - 1) + ']').toggleClass(toggleColor, states[0][2]),
+    $('tr[data-num=' + (trnum + 1) + '] td[data-num=' + (tdnum) + ']').toggleClass(toggleColor, states[0][1]),
+    $('tr[data-num=' + (trnum + 1) + '] td[data-num=' + (tdnum + 1) + ']').toggleClass(toggleColor, states[0][0])
+
+    console.log(states);
+}
 
 $(function() {
     makeTable(data, content);
@@ -174,5 +209,10 @@ $(function() {
     $('.yellow .cube').click(function(e) {
         e.preventDefault();
         flipOpposite(this);
+    });
+
+    $('.yellow .tetra').click(function(e) {
+        e.preventDefault();
+        rotatePerimeter(this);
     });
 });
