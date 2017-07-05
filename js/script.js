@@ -41,9 +41,7 @@ var makeTable = function(classes, content) {
             if (content != null) {
                 text = content[i][j];
             }
-            // lit = lights[i][j] ? "data-lit" : "";
-            lit = "";
-            html += '<td data-num=' + (j + 1) + ' ' + lit + ' class="' + value + '">';
+            html += '<td data-num=' + (j + 1) + ' ' + ' class="' + value + '">';
             $.each(colors, function(k, color) {
                 html += '<div class="' + color + '">'
                 $.each(shapes, function(l, shape) {
