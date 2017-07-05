@@ -178,19 +178,28 @@ var rotatePerimeter = function(el) {
     $('tr[data-num=' + (trnum + 1) + '] td[data-num=' + (tdnum + 1) + ']').toggleClass(toggleColor, states[0][0])
 }
 
-var redSphere = function(r, c) { flip(getCell(r, c)); };
-var redCube = function(r, c) { flipX(getCell(r, c)); };
-var redTetra = function(r, c) { flipPlus(getCell(r, c)); };
-// var blueSphere = function(r, c) { flip(getCell(r, c)); };
-var blueCube = function(r, c) { flipExtendedX(getCell(r, c)); };
-var blueTetra = function(r, c) { flipExtendedPlus(getCell(r, c)); };
-var yellowSphere = function(r, c) { flipPerimeter(getCell(r, c)); };
-var yellowCube = function(r, c) { flipOpposite(getCell(r, c)); };
-var yellowTetra = function(r, c) { rotatePerimeter(getCell(r, c)); };
+var elements = [];
+
+var redSphere = function(r, c) { flip(getCell(r, c)); elements.push('sphere')};
+var redCube = function(r, c) { flipX(getCell(r, c)); elements.push('cube')};
+var redTetra = function(r, c) { flipPlus(getCell(r, c)); elements.push('tetra')};
+// var blueSphere = function(r, c) { flip(getCell(r, c)); elements.push('sphere')};
+var blueCube = function(r, c) { flipExtendedX(getCell(r, c)); elements.push('cube')};
+var blueTetra = function(r, c) { flipExtendedPlus(getCell(r, c)); elements.push('tetra')};
+var yellowSphere = function(r, c) { flipPerimeter(getCell(r, c)); elements.push('sphere')};
+var yellowCube = function(r, c) { flipOpposite(getCell(r, c)); elements.push('cube')};
+var yellowTetra = function(r, c) { rotatePerimeter(getCell(r, c)); elements.push('tetra')};
 
 $(function() {
     makeTable(data, content);
     setupGrid();
+
+    els = '';
+    console.log(elements);
+    $.each(elements, function(i, shape) {
+        els += '<span class="shape ' + shape + '" href="#"></span>';
+    });
+    $('#elements').html(els);
 
     $('.red .sphere').click(function(e) {
         e.preventDefault();

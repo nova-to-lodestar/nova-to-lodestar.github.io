@@ -20,7 +20,7 @@ html, body {
   height: 100%;
 }
 
-$nav_height: 3%;
+$nav_height: 4%;
 
 .nav {
     background:#333;
@@ -34,6 +34,10 @@ $nav_height: 3%;
             background:#555;
         }
     }
+}
+
+#elements {
+    color: #bbb;
 }
 
 .container {
@@ -85,8 +89,16 @@ td {
     height: $dim;
     text-decoration: none;
     background:white;
-    margin: 5px 4px ;
+    margin: 5px 3px;
     opacity: 0;
+}
+
+#elements {
+    // padding: 0 1em;
+    .shape {
+        margin: .5em;
+        opacity: 1;
+    }
 }
 
 .sphere {
