@@ -188,15 +188,17 @@ var flipBetween = function(el) {
 
 var elements = [];
 
-var redSphere = function(r, c) { flip(getCell(r, c)); elements.push('sphere')};
-var redCube = function(r, c) { flipX(getCell(r, c)); elements.push('cube')};
-var redTetra = function(r, c) { flipPlus(getCell(r, c)); elements.push('tetra')};
-// var blueSphere = function(r, c) { flip(getCell(r, c)); elements.push('sphere')};
-var blueCube = function(r, c) { flipExtendedX(getCell(r, c)); elements.push('cube')};
-var blueTetra = function(r, c) { flipExtendedPlus(getCell(r, c)); elements.push('tetra')};
-var yellowSphere = function(r, c) { flipRing(getCell(r, c)); elements.push('sphere')};
-var yellowCube = function(r, c) { flipOpposite(getCell(r, c)); elements.push('cube')};
-var yellowTetra = function(r, c) { rotateRing(getCell(r, c)); elements.push('tetra')};
+var turnOn = function(r, c, color) { flip(getCell(r, c), color); };
+
+var redSphere = function(r, c) { flip(getCell(r, c), 'r'); elements.push('sphere')};
+var redCube = function(r, c) { flipX(getCell(r, c), 'r'); elements.push('cube')};
+var redTetra = function(r, c) { flipPlus(getCell(r, c), 'r'); elements.push('tetra')};
+// var blueSphere = function(r, c) { flip(getCell(r, c), 'b'); elements.push('sphere')};
+var blueCube = function(r, c) { flipExtendedX(getCell(r, c), 'b'); elements.push('cube')};
+var blueTetra = function(r, c) { flipExtendedPlus(getCell(r, c), 'b'); elements.push('tetra')};
+var yellowSphere = function(r, c) { flipRing(getCell(r, c), 'y'); elements.push('sphere')};
+var yellowCube = function(r, c) { flipOpposite(getCell(r, c), 'y'); elements.push('cube')};
+var yellowTetra = function(r, c) { rotateRing(getCell(r, c), 'y'); elements.push('tetra')};
 
 $(function() {
     makeTable(data, content);
