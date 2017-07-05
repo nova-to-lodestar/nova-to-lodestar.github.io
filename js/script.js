@@ -95,7 +95,7 @@ var flipX = function(el) {
     flip(tr.next().find('td')[tdnum+1]);
 };
 
-var flipPerimeter = function(el) {
+var flipRing = function(el) {
     var td = $(el).closest('td');
     var tr = $(el).closest('td').parent();
     var tdnum = td.index();
@@ -144,7 +144,7 @@ var flipOpposite = function(el) {
     flip($('tr[data-num=' + (8-trnum+1) + '] td[data-num=' + (8-tdnum+1) + ']'));
 };
 
-var rotatePerimeter = function(el) {
+var rotateRing = function(el) {
     var td = $(el).closest('td');
     var tr = $(el).closest('td').parent();
     var tdnum = parseInt(td.attr('data-num'));
@@ -186,9 +186,9 @@ var redTetra = function(r, c) { flipPlus(getCell(r, c)); elements.push('tetra')}
 // var blueSphere = function(r, c) { flip(getCell(r, c)); elements.push('sphere')};
 var blueCube = function(r, c) { flipExtendedX(getCell(r, c)); elements.push('cube')};
 var blueTetra = function(r, c) { flipExtendedPlus(getCell(r, c)); elements.push('tetra')};
-var yellowSphere = function(r, c) { flipPerimeter(getCell(r, c)); elements.push('sphere')};
+var yellowSphere = function(r, c) { flipRing(getCell(r, c)); elements.push('sphere')};
 var yellowCube = function(r, c) { flipOpposite(getCell(r, c)); elements.push('cube')};
-var yellowTetra = function(r, c) { rotatePerimeter(getCell(r, c)); elements.push('tetra')};
+var yellowTetra = function(r, c) { rotateRing(getCell(r, c)); elements.push('tetra')};
 
 $(function() {
     makeTable(data, content);
@@ -233,7 +233,7 @@ $(function() {
 
     $('.yellow .sphere').click(function(e) {
         e.preventDefault();
-        flipPerimeter(this);
+        flipRing(this);
     });
 
     $('.yellow .cube').click(function(e) {
@@ -243,6 +243,6 @@ $(function() {
 
     $('.yellow .tetra').click(function(e) {
         e.preventDefault();
-        rotatePerimeter(this);
+        rotateRing(this);
     });
 });
