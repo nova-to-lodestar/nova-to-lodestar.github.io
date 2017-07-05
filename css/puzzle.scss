@@ -49,7 +49,7 @@ table {
     border-collapse: collapse;
 }
 
-td, th {
+td {
     border: 3px solid #777;
     text-align: center;
     background-image: url("/img/panel.png");
@@ -58,42 +58,53 @@ td, th {
     background-position: center center;
 }
 
+tr {
+    height: 12.5%;
+}
+
+$dim: 16px;
+
 td {
     width: 12.5%;
-
-    a {
-        display: block;
-        width: 25px;
-        height: 25px;
-        text-decoration: none;
-        background:white;
-        margin: 5px auto;
-        opacity: 0;
-    }
-
-    &:hover {
-        a {
-            opacity: 1;
-        }
-    }
-
-    .sphere {
-        border-radius: 50%;
-    }
-
-    .tetra {
-        width: 0;
-        height: 0;
-        background:none;
-        border-left: 17px solid transparent;
-        border-right: 17px solid transparent;
-        border-bottom: 25px solid white;
-    }
+    font-size: 0;
 
     &[data-lit] {
         background-color: white;
     }
+
+    &:hover {
+        .shape {
+            opacity: 1;
+        }
+    }
 }
+
+.shape {
+    display: inline-block;
+    width: $dim;
+    height: $dim;
+    text-decoration: none;
+    background:white;
+    margin: 5px 4px ;
+    opacity: 0;
+}
+
+.sphere {
+    border-radius: 50%;
+}
+
+.tetra {
+    width: 0;
+    height: 0;
+    border-left: $dim*.65 solid transparent;
+    border-right: $dim*.65 solid transparent;
+    border-bottom: $dim solid white;
+    background: none !important;
+}
+
+.red .shape { background: red; border-bottom-color: red; }
+.blue .shape { background: blue; border-bottom-color: blue; }
+.yellow .shape { background: yellow; border-bottom-color: yellow; }
 
 /*===============
 COLORS
@@ -373,6 +384,8 @@ NUMBERS
 .n11 { background-image: url("/img/numbers/n11.png"); background-color: Fuchsia; }
 .n12 { background-image: url("/img/numbers/n12.png"); background-color: Fuchsia; }
 .n16 { background-image: url("/img/numbers/n16.png"); background-color: Fuchsia; }
+
+.w8 { background-image: url("/img/numbers/n8.png"); background-color: white; }
 
 /*===============
 SHADING

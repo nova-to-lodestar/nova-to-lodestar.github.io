@@ -34,27 +34,7 @@ exclude:
 
 # Collections
 collections:
-  set_colors:
+  red:
     output: true
-    title: Colors
-  set_line:
-    output: true
-    title: Line
-  set_cross:
-    output: true
-    title: Cross
-  set_copy:
-    output: true
-    title: Copy
-  set_number:
-    output: true
-    title: Number
-  set_blink:
-    output: true
-    title: Blink
-  set_tangrams:
-    output: true
-    title: Tangrams
-  set_copy_colors:
-    output: true
-    title: Tangrams
+    title: Red
+    permalink: /:collection/:path/index.html

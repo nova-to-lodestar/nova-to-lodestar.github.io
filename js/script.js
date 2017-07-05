@@ -6,9 +6,31 @@
 //     [false,false,false,false,false,false,false,false]
 // ];
 
+var data = [
+    ["","","","","","","",""],
+    ["","","","","","","",""],
+    ["","","","","","","",""],
+    ["","","","","","","",""],
+    ["","","","","","","",""],
+    ["","","","","","","",""],
+    ["","","","","","","",""],
+    ["","","","","","","",""]
+];
+
+var colors = [
+    'red',
+    'blue',
+    'yellow'
+]
+
+var shapes = [
+    'sphere',
+    'cube',
+    'tetra'
+]
+
 var makeTable = function(classes, content) {
     var html = '<table>';
-    var clickable = $('body').hasClass('clickable');
     $.each(classes, function(i, value) {
         html += '<tr>';
         $.each(value, function(j, value) {
@@ -18,11 +40,16 @@ var makeTable = function(classes, content) {
             }
             // lit = lights[i][j] ? "data-lit" : "";
             lit = "";
-            if (clickable) {
-                html += '<td ' + lit + ' class="' + value + '"><a class="sphere" href="/"></a><a class="cube" href="/"></a><a class="tetra" href="/"></a></td>';
-            } else {
-                html += '<td class="on ' + value + '">' + text + '</td>';
-            }
+            html += '<td ' + lit + ' class="' + value + '">';
+            $.each(colors, function(k, color) {
+                html += '<div class="' + color + '">'
+                $.each(shapes, function(l, shape) {
+                    html += '<a class="shape ' + shape + '" href="/"></a>';
+                });
+                html += '</div>'
+            });
+            html += '</a></td>';
+            // html += '<td class="on ' + value + '">' + text + '</td>';
         });
         html += '</tr>';
     });
