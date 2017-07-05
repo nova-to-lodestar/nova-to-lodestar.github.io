@@ -216,6 +216,11 @@ $(function() {
         flipPlus(this);
     });
 
+    $('.blue .sphere').click(function(e) {
+        e.preventDefault();
+        flip($(this).closest('td'));
+    });
+
     $('.blue .cube').click(function(e) {
         e.preventDefault();
         flipExtendedX(this);
