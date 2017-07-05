@@ -60,18 +60,6 @@ collections:
     title: Yellow and Blue
     permalink: /:collection/:path/index.html
 
-  orange:
-    output: true
-    title: Orange
-    permalink: /:collection/:path/index.html
-  green:
-    output: true
-    title: Green
-    permalink: /:collection/:path/index.html
-  purple:
-    output: true
-    title: Purple
-    permalink: /:collection/:path/index.html
   white:
     output: true
     title: White
