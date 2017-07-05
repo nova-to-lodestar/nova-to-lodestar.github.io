@@ -7,7 +7,6 @@
 // ];
 
 var content = null;
-var on = [];
 var setupGrid = function() {};
 
 var data = [
@@ -179,15 +178,8 @@ var rotatePerimeter = function(el) {
     $('tr[data-num=' + (trnum + 1) + '] td[data-num=' + (tdnum + 1) + ']').toggleClass(toggleColor, states[0][0])
 }
 
-var turnOn = function(on) {
-    $.each(on, function(i, coord) {
-        flip($('tr[data-num=' + coord[0] + '] td[data-num=' + coord[1] + ']'));
-    });
-}
-
 $(function() {
     makeTable(data, content);
-    turnOn(on);
     setupGrid();
 
     $('.red .sphere').click(function(e) {
