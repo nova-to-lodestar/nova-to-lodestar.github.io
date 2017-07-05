@@ -19,14 +19,7 @@ layout: default
               <a class="page-link" href="{{ doc.url | prepend: site.baseurl }}">{{ doc.title }}</a>
           </li>
         {% endfor %}
-    {% endfor %}
-
-    <h2>Rest</h2>
-    {% for page in site.pages %}
-      <li>
-          <a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
-      </li>
-    {% endfor %}
-  </ul>
+    </ul>
+{% endfor %}
 
 </div>
