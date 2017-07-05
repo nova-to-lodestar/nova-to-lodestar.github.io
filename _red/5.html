@@ -1,15 +1,13 @@
 ---
-layout: clickable
-title: Colors 5
-color: w
+layout: red
+title: Red 5
 ---
 
 <script>
-var data = [
-    ["","","","","","","",""],
-    ["","w","w","w","w","w","w",""],
-    ["w","w","w","w","w","w","w","w"],
-    ["","w","w","w","w","w","w",""],
-    ["","","","","","","",""]
-];
+setupGrid = function() {
+    flipPlus(getCell(3, 2));
+    flipX(getCell(3, 4));
+    flipX(getCell(3, 5));
+    flipPlus(getCell(3, 7));
+}
 </script>

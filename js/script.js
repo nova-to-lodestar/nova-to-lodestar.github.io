@@ -6,6 +6,10 @@
 //     [false,false,false,false,false,false,false,false]
 // ];
 
+var content = null;
+var on = [];
+var setupGrid = function() {};
+
 var data = [
     ["","","","","","","",""],
     ["","","","","","","",""],
@@ -56,6 +60,10 @@ var makeTable = function(classes, content) {
     html += '</table>';
 
     $('.container').html(html);
+}
+
+var getCell = function(row, col) {
+    return $('tr[data-num=' + row + '] td[data-num=' + col + ']');
 }
 
 var flip = function(el) {
@@ -169,12 +177,18 @@ var rotatePerimeter = function(el) {
     $('tr[data-num=' + (trnum + 1) + '] td[data-num=' + (tdnum - 1) + ']').toggleClass(toggleColor, states[0][2]),
     $('tr[data-num=' + (trnum + 1) + '] td[data-num=' + (tdnum) + ']').toggleClass(toggleColor, states[0][1]),
     $('tr[data-num=' + (trnum + 1) + '] td[data-num=' + (tdnum + 1) + ']').toggleClass(toggleColor, states[0][0])
+}
 
-    console.log(states);
+var turnOn = function(on) {
+    $.each(on, function(i, coord) {
+        flip($('tr[data-num=' + coord[0] + '] td[data-num=' + coord[1] + ']'));
+    });
 }
 
 $(function() {
     makeTable(data, content);
+    turnOn(on);
+    setupGrid();
 
     $('.red .sphere').click(function(e) {
         e.preventDefault();
