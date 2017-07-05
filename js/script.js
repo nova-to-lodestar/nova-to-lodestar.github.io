@@ -70,6 +70,8 @@ var flip = function(el, color) {
         var audioElement = document.createElement('audio');
         audioElement.setAttribute('src', '/mp3/done.mp3');
         audioElement.setAttribute('autoplay', 'autoplay');
+
+        $('td').addClass('blink-white');
     }
 };
 
