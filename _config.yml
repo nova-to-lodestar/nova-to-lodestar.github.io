@@ -46,6 +46,20 @@ collections:
     output: true
     title: Yellow
     permalink: /:collection/:path/index.html
+
+  red_yellow:
+    output: true
+    title: Red and Yellow
+    permalink: /:collection/:path/index.html
+  blue_red:
+    output: true
+    title: Blue and Red
+    permalink: /:collection/:path/index.html
+  yellow_blue:
+    output: true
+    title: Yellow and Blue
+    permalink: /:collection/:path/index.html
+
   orange:
     output: true
     title: Orange

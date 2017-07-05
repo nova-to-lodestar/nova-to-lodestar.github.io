@@ -15,3 +15,5 @@ when you use a shape, the shape appears in the interface, in that square, until 
 for hard puzzles, inventory is missing. take hint => efficiency goes down
 
 decide on a discrete order thorugh the puzzles.
+
+indicate which shape is active in each square
