@@ -64,7 +64,7 @@ var getCell = function(row, col) {
 }
 
 var flip = function(el, color) {
-    $(el).toggleClass(color);
+    $(el).closest('td').toggleClass(color);
 };
 
 var flipPlus = function(el, color) {
@@ -212,6 +212,7 @@ $(function() {
     $('.red .sphere').click(function(e) {
         e.preventDefault();
         flip($(this).closest('td'), 'r');
+        flip(this, 'r');
     });
 
     $('.red .cube').click(function(e) {
