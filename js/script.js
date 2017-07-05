@@ -195,7 +195,7 @@ $(function() {
     setupGrid();
 
     els = '';
-    console.log(elements);
+    elements.sort();
     $.each(elements, function(i, shape) {
         els += '<span class="shape ' + shape + '" href="#"></span>';
     });
