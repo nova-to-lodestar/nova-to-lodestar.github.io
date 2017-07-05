@@ -1,0 +1,29 @@
+redSphere(4, 4);
+redSphere(4, 5);
+redSphere(5, 4);
+redSphere(5, 6);
+redSphere(6, 5);
+redSphere(6, 6);
+
+NEW
+redSphere(1, 1);
+redSphere(1, 5);
+redSphere(2, 2);
+redSphere(2, 4);
+redSphere(2, 6);
+redSphere(3, 3);
+redSphere(4, 2);
+redSphere(5, 1);
+redSphere(5, 3);
+redSphere(5, 7);
+redSphere(6, 4);
+redSphere(6, 8);
+redSphere(8, 8);
+
+NEW
+redSphere(3, 3);
+redSphere(3, 5);
+redSphere(4, 3);
+redSphere(4, 5);
+redSphere(5, 3);
+redSphere(5, 5);
