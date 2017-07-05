@@ -38,3 +38,11 @@ collections:
     output: true
     title: Red
     permalink: /:collection/:path/index.html
+  blue:
+    output: true
+    title: Blue
+    permalink: /:collection/:path/index.html
+  yellow:
+    output: true
+    title: Yellow
+    permalink: /:collection/:path/index.html
