@@ -178,6 +178,16 @@ var rotatePerimeter = function(el) {
     $('tr[data-num=' + (trnum + 1) + '] td[data-num=' + (tdnum + 1) + ']').toggleClass(toggleColor, states[0][0])
 }
 
+var redSphere = function(r, c) { flip(getCell(r, c)); };
+var redCube = function(r, c) { flipX(getCell(r, c)); };
+var redTetra = function(r, c) { flipPlus(getCell(r, c)); };
+// var blueSphere = function(r, c) { flip(getCell(r, c)); };
+var blueCube = function(r, c) { flipExtendedX(getCell(r, c)); };
+var blueTetra = function(r, c) { flipExtendedPlus(getCell(r, c)); };
+var yellowSphere = function(r, c) { flipPerimeter(getCell(r, c)); };
+var yellowCube = function(r, c) { flipOpposite(getCell(r, c)); };
+var yellowTetra = function(r, c) { rotatePerimeter(getCell(r, c)); };
+
 $(function() {
     makeTable(data, content);
     setupGrid();
