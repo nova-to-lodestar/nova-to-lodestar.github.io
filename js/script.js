@@ -198,6 +198,10 @@ var yellowSphere = function(r, c) { flipRing(getCell(r, c), 'y'); elements.push(
 var yellowCube = function(r, c) { flipOpposite(getCell(r, c), 'y'); elements.push('cube')};
 var yellowTetra = function(r, c) { rotateRing(getCell(r, c), 'y'); elements.push('tetra')};
 
+var shape = function(el, shape) {
+    $(el).closest('td').attr('data-shape', shape)
+};
+
 $(function() {
     makeTable(data, content);
     setupGrid();
@@ -211,47 +215,55 @@ $(function() {
 
     $('.red .sphere').click(function(e) {
         e.preventDefault();
-        flip($(this).closest('td'), 'r');
+        shape(this, 'red-sphere');
         flip(this, 'r');
     });
 
     $('.red .cube').click(function(e) {
         e.preventDefault();
+        shape(this, 'red-cube');
         flipX(this, 'r');
     });
 
     $('.red .tetra').click(function(e) {
         e.preventDefault();
+        shape(this, 'red-tetra');
         flipPlus(this, 'r');
     });
 
     $('.blue .sphere').click(function(e) {
         e.preventDefault();
+        shape(this, 'blue-sphere');
         flipBetween(this, 'b');
     });
 
     $('.blue .cube').click(function(e) {
         e.preventDefault();
+        shape(this, 'blue-cube');
         flipExtendedX(this, 'b');
     });
 
     $('.blue .tetra').click(function(e) {
         e.preventDefault();
+        shape(this, 'blue-tetra');
         flipExtendedPlus(this, 'b');
     });
 
     $('.yellow .sphere').click(function(e) {
         e.preventDefault();
+        shape(this, 'yellow-sphere');
         flipRing(this, 'y');
     });
 
     $('.yellow .cube').click(function(e) {
         e.preventDefault();
+        shape(this, 'yellow-cube');
         flipOpposite(this, 'y');
     });
 
     $('.yellow .tetra').click(function(e) {
         e.preventDefault();
+        shape(this, 'yellow-tetra');
         rotateRing(this, 'y');
     });
 });

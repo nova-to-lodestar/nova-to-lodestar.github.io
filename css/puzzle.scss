@@ -79,6 +79,7 @@ td {
     &:hover {
         .shape {
             opacity: 1;
+            display: inline-block;
         }
     }
 }
@@ -117,6 +118,23 @@ td {
 .red .shape { background: red; border-bottom-color: red; }
 .blue .shape { background: blue; border-bottom-color: blue; }
 .yellow .shape { background: yellow; border-bottom-color: yellow; }
+
+[data-shape] .shape {
+    opacity: 0;
+}
+
+[data-shape=red-sphere] .red .sphere,
+[data-shape=red-tetra] .red .tetra,
+[data-shape=red-cube] .red .cube,
+[data-shape=blue-sphere] .blue .sphere,
+[data-shape=blue-tetra] .blue .tetra,
+[data-shape=blue-cube] .blue .cube,
+[data-shape=yellow-sphere] .yellow .sphere,
+[data-shape=yellow-tetra] .yellow .tetra,
+[data-shape=yellow-cube] .yellow .cube,
+{
+    opacity: 1;
+}
 
 /*===============
 COLORS
