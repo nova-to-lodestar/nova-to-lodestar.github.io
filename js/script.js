@@ -64,12 +64,8 @@ var getCell = function(row, col) {
     return $('tr[data-num=' + row + '] td[data-num=' + col + ']');
 }
 
-var flip = function(el, color) {
-    if (toggleColor == 'w') {
-        color = "w";
-    }
-    $(el).toggleClass(color);
-
+var isDone = function() {
+    console.log($('td.r, td.b, td.y, td.p, td.o, td.g, td.w'));
     if (ready && $('td.r, td.b, td.y, td.p, td.o, td.g, td.w').length == 0) {
         var audioElement = document.createElement('audio');
         audioElement.setAttribute('src', '/mp3/done.mp3');
@@ -77,10 +73,19 @@ var flip = function(el, color) {
 
         $('td').addClass('blink-white');
     }
+}
+
+var flip = function(el, color) {
+    if (toggleColor == 'w') {
+        color = "w";
+    }
+    $(el).toggleClass(color);
 };
 
 var flipOne = function(el, color) {
     flip($(el).closest('td'), color);
+
+    isDone();
 };
 
 var flipPlus = function(el, color) {
@@ -94,6 +99,8 @@ var flipPlus = function(el, color) {
     flip(td.prev(), color);
     flip(tr.prev().find('td')[tdnum], color);
     flip(tr.next().find('td')[tdnum], color);
+
+    isDone();
 };
 
 var flipX = function(el, color) {
@@ -107,6 +114,8 @@ var flipX = function(el, color) {
     flip(tr.prev().find('td')[tdnum+1], color);
     flip(tr.next().find('td')[tdnum-1], color);
     flip(tr.next().find('td')[tdnum+1], color);
+
+    isDone();
 };
 
 var flipRing = function(el, color) {
@@ -123,6 +132,8 @@ var flipRing = function(el, color) {
     flip(tr.prev().find('td')[tdnum+1], color);
     flip(tr.next().find('td')[tdnum-1], color);
     flip(tr.next().find('td')[tdnum+1], color);
+
+    isDone();
 };
 
 var flipExtendedPlus = function(el, color) {
@@ -132,6 +143,8 @@ var flipExtendedPlus = function(el, color) {
 
     flip(td.siblings(), color);
     flip($('td[data-num=' + tdnum + ']'), color);
+
+    isDone();
 };
 
 var flipExtendedX = function(el, color) {
@@ -147,6 +160,8 @@ var flipExtendedX = function(el, color) {
         flip($('tr[data-num=' + (trnum - i) + '] td[data-num=' + (tdnum + i) + ']'), color);
         flip($('tr[data-num=' + (trnum + i) + '] td[data-num=' + (tdnum + i) + ']'), color);
     });
+
+    isDone();
 };
 
 var flipOpposite = function(el, color) {
@@ -156,6 +171,8 @@ var flipOpposite = function(el, color) {
     var trnum = parseInt(tr.attr('data-num'));
 
     flip($('tr[data-num=' + (8-trnum+1) + '] td[data-num=' + (8-tdnum+1) + ']'), color);
+
+    isDone();
 };
 
 var rotateRing = function(el, color) {
@@ -213,6 +230,8 @@ var flipBetween = function(el) {
             flip(panel, 'b');
         });
     }
+
+    isDone();
 };
 
 var elements = [];
