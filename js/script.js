@@ -67,8 +67,7 @@ var getCell = function(row, col) {
 var flip = function(el, color) {
     $(el).toggleClass(color);
 
-    if (ready && $('td.r, td.b, td.y').length == 0) {
-        console.log(ready);
+    if (ready && $('td.r, td.b, td.y, td.p, td.o, td.g, td.w').length == 0) {
         var audioElement = document.createElement('audio');
         audioElement.setAttribute('src', '/mp3/done.mp3');
         audioElement.setAttribute('autoplay', 'autoplay');
