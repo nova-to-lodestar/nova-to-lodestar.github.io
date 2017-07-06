@@ -65,6 +65,9 @@ var getCell = function(row, col) {
 }
 
 var flip = function(el, color) {
+    if (toggleColor == 'w') {
+        color = "w";
+    }
     $(el).toggleClass(color);
 
     if (ready && $('td.r, td.b, td.y, td.p, td.o, td.g, td.w').length == 0) {
