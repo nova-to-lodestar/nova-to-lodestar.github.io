@@ -60,6 +60,10 @@ collections:
     title: Yellow and Blue
     permalink: /:collection/:path/index.html
 
+  secondaries:
+    output: true
+    title: Secondaries
+    permalink: /:collection/:path/index.html
   white:
     output: true
     title: White

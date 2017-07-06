@@ -1,5 +1,7 @@
 # TODO
 
+white isn't working
+
 add secondaries to test list
 
 when you get them all right, show original config, but make the squares glow
