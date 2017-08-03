@@ -106,6 +106,9 @@ td {
 [data-shape=yellow-cube] .yellow .cube {
   opacity: 1; }
 
+.blink-success {
+  animation: blinksuccess 500ms ease infinite; }
+
 /*===============
 COLORS
 ===============*/
@@ -147,7 +150,6 @@ COLORS
     background-color: #777; }
   100% {
     background-color: #777; } }
-
 .blink1 {
   animation: blink1 1.5s ease infinite; }
 
@@ -162,7 +164,6 @@ COLORS
     background-color: #777; }
   100% {
     background-color: #777; } }
-
 .blink2 {
   animation: blink2 2s ease infinite; }
 
@@ -181,7 +182,6 @@ COLORS
     background-color: #777; }
   100% {
     background-color: #777; } }
-
 .blink3 {
   animation: blink3 2.5s ease infinite; }
 
@@ -204,7 +204,6 @@ COLORS
     background-color: #777; }
   100% {
     background-color: #777; } }
-
 .blink4 {
   animation: blink4 3s ease infinite; }
 
@@ -231,7 +230,6 @@ COLORS
     background-color: #777; }
   100% {
     background-color: #777; } }
-
 .blink5 {
   animation: blink5 3.5s ease infinite; }
 
@@ -262,7 +260,6 @@ COLORS
     background-color: #777; }
   100% {
     background-color: #777; } }
-
 .blink6 {
   animation: blink6 4s ease infinite; }
 
@@ -353,30 +350,31 @@ SHADING
 /*===============
 BLINKING
 ===============*/
+@keyframes blinksuccess {
+  50% {
+    background-color: cyan; }
+  100% {
+    background-color: #777; } }
 @keyframes blinkcyan {
   5% {
     background-color: cyan; }
   10% {
     background-color: #777; } }
-
 @keyframes blinkmagenta {
   5% {
     background-color: magenta; }
   10% {
     background-color: #777; } }
-
 @keyframes blinkred {
   5% {
     background-color: red; }
   10% {
     background-color: #777; } }
-
 @keyframes blinkyellow {
   5% {
     background-color: yellow; }
   10% {
     background-color: #777; } }
-
 .s0 {
   animation: blinkcyan 4s 0s ease infinite; }
 

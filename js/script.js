@@ -71,7 +71,7 @@ var isDone = function() {
         audioElement.setAttribute('src', '/mp3/done.mp3');
         audioElement.setAttribute('autoplay', 'autoplay');
 
-        $('td').addClass('blink-white');
+        $('td').addClass('blink-success');
     }
 }
 

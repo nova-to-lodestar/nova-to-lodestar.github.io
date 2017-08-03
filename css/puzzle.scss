@@ -135,6 +135,8 @@ td {
     opacity: 1;
 }
 
+.blink-success { animation: blinksuccess 500ms ease infinite; }
+
 /*===============
 COLORS
 ===============*/
@@ -433,7 +435,7 @@ SHADING
 BLINKING
 ===============*/
 
-@keyframes blinkwhite {
+@keyframes blinksuccess {
   50% {
     background-color: cyan; }
   100% {
@@ -467,8 +469,6 @@ BLINKING
   10% {
     background-color: #777; }
 }
-
-.blink-white { animation: blinkwhite 500ms ease infinite; }
 
 .s0 { animation: blinkcyan 4s 0s ease infinite; }
 .s1 { animation: blinkcyan 4s .25s ease infinite; }
