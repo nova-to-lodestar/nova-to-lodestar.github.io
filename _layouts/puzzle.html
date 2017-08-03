@@ -11,7 +11,10 @@ var toggleColor = '{{ layout.color }}';
 {{ content }}
 </head>
 <body>
-<div class="nav"><a href="/" id="elements"></a></div>
+<div class="nav">
+    <a href="/" id="elements"></a>
+    <a href="{{ page.next.url }}" id="next">>> &nbsp;</a>
+</div>
 <section class="container"></section>
 </body>
 

@@ -22,14 +22,38 @@ $nav_height: 4%;
 .nav {
     background:#333;
     height: $nav_height;
+    position: relative;
+}
 
-    a {
-        display: block;
-        height: 100%;
+#elements {
+    display: block;
+    height: 100%;
+    width: 80%;
+    position: absolute;
+    top: 0;
+    left: 0;
 
-        &:hover {
-            background:#555;
-        }
+    &:hover {
+        background:#555;
+    }
+}
+
+#next {
+    display: block;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 19%;
+    text-align: right;
+    color: white;
+    text-decoration: none;
+    font-family: Helvetica;
+    padding: 0;
+    font-size: 1.3em;
+
+    &:hover {
+        background:#555;
     }
 }
 
