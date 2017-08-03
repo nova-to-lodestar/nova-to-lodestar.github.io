@@ -34,6 +34,10 @@ exclude:
 
 # Collections
 collections:
+  playtest:
+    output: true
+    title: Playtest
+    permalink: /:collection/:path/index.html
   red:
     output: true
     title: Red
