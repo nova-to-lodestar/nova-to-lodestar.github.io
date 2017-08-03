@@ -65,7 +65,6 @@ var getCell = function(row, col) {
 }
 
 var isDone = function() {
-    console.log($('td.r, td.b, td.y, td.p, td.o, td.g, td.w'));
     if (ready && $('td.r, td.b, td.y, td.p, td.o, td.g, td.w').length == 0) {
         var audioElement = document.createElement('audio');
         audioElement.setAttribute('src', '/mp3/done.mp3');
