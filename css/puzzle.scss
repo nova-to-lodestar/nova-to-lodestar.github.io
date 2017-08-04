@@ -146,15 +146,15 @@ td {
     opacity: 0;
 }
 
-[data-shape=red-sphere] .red .sphere,
-[data-shape=red-tetra] .red .tetra,
-[data-shape=red-cube] .red .cube,
-[data-shape=blue-sphere] .blue .sphere,
-[data-shape=blue-tetra] .blue .tetra,
-[data-shape=blue-cube] .blue .cube,
-[data-shape=yellow-sphere] .yellow .sphere,
-[data-shape=yellow-tetra] .yellow .tetra,
-[data-shape=yellow-cube] .yellow .cube,
+[data-color=red][data-shape=sphere] .red .sphere,
+[data-color=red][data-shape=tetra] .red .tetra,
+[data-color=red][data-shape=cube] .red .cube,
+[data-color=blue][data-shape=sphere] .blue .sphere,
+[data-color=blue][data-shape=tetra] .blue .tetra,
+[data-color=blue][data-shape=cube] .blue .cube,
+[data-color=yellow][data-shape=sphere] .yellow .sphere,
+[data-color=yellow][data-shape=tetra] .yellow .tetra,
+[data-color=yellow][data-shape=cube] .yellow .cube,
 {
     opacity: 1;
 }

@@ -247,12 +247,13 @@ var yellowSphere = function(r, c) { flipRing(getCell(r, c), 'y'); elements.push(
 var yellowCube = function(r, c) { flipOpposite(getCell(r, c), 'y'); elements.push('cube')};
 var yellowTetra = function(r, c) { rotateRing(getCell(r, c), 'y'); elements.push('tetra')};
 
-var shape = function(el, shape) {
+var shape = function(el, color, shape) {
     var el = $(el).closest('td');
     if (el.attr('data-shape')) {
         el.attr('data-shape', '');
         return false;
     }
+    el.attr('data-color', color);
     el.attr('data-shape', shape);
     return true;
 };
@@ -285,7 +286,7 @@ $(function() {
     $('.red .sphere').click(function(e) {
         e.preventDefault();
         if (checkInventory('sphere')) {
-            shape(this, 'red-sphere');
+            shape(this, 'red', 'sphere');
             flipOne(this, 'r');
         }
     });
@@ -293,7 +294,7 @@ $(function() {
     $('.red .cube').click(function(e) {
         e.preventDefault();
         if (checkInventory('cube')) {
-            shape(this, 'red-cube');
+            shape(this, 'red', 'cube');
             flipX(this, 'r');
         }
     });
@@ -301,7 +302,7 @@ $(function() {
     $('.red .tetra').click(function(e) {
         e.preventDefault();
         if (checkInventory('tetra')) {
-            shape(this, 'red-tetra');
+            shape(this, 'red', 'tetra');
             flipPlus(this, 'r');
         }
     });
@@ -309,7 +310,7 @@ $(function() {
     $('.blue .sphere').click(function(e) {
         e.preventDefault();
         if (checkInventory('sphere')) {
-            shape(this, 'blue-sphere');
+            shape(this, 'blue', 'sphere');
             flipBetween(this, 'b');
         }
     });
@@ -317,7 +318,7 @@ $(function() {
     $('.blue .cube').click(function(e) {
         e.preventDefault();
         if (checkInventory('cube')) {
-            shape(this, 'blue-cube');
+            shape(this, 'blue', 'cube');
             flipExtendedX(this, 'b');
         }
     });
@@ -325,7 +326,7 @@ $(function() {
     $('.blue .tetra').click(function(e) {
         e.preventDefault();
         if (checkInventory('tetra')) {
-            shape(this, 'blue-tetra');
+            shape(this, 'blue', 'tetra');
             flipExtendedPlus(this, 'b');
         }
     });
@@ -333,7 +334,7 @@ $(function() {
     $('.yellow .sphere').click(function(e) {
         e.preventDefault();
         if (checkInventory('sphere')) {
-            shape(this, 'yellow-sphere');
+            shape(this, 'yellow', 'sphere');
             flipRing(this, 'y');
         }
     });
@@ -341,7 +342,7 @@ $(function() {
     $('.yellow .cube').click(function(e) {
         e.preventDefault();
         if (checkInventory('cube')) {
-            shape(this, 'yellow-cube');
+            shape(this, 'yellow', 'cube');
             flipOpposite(this, 'y');
         }
     });
@@ -349,7 +350,7 @@ $(function() {
     $('.yellow .tetra').click(function(e) {
         e.preventDefault();
         if (checkInventory('tetra')) {
-            shape(this, 'yellow-tetra');
+            shape(this, 'yellow', 'tetra');
             rotateRing(this, 'y');
         }
     });
