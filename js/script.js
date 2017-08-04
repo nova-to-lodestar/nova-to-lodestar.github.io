@@ -265,7 +265,7 @@ var checkInventory = function(shape) {
     var tetraOver = $('[data-shape=tetra]').length > (c['tetra'] || 0);
     if (sphereOver || cubeOver || tetraOver) {
         $('td').each(function(i) {
-            $(this).addClass('blink-fail-' + (Math.floor(Math.random() * 4) + 1));
+            $(this).attr('class', 'blink-fail-' + (Math.floor(Math.random() * 4) + 1));
         });
         return false;
     }
