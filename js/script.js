@@ -257,6 +257,16 @@ var shape = function(el, shape) {
     return true;
 };
 
+var checkInventory = function(shape) {
+    if (!elements.includes(shape)) {
+        $('td').each(function(i) {
+            $(this).addClass('blink-fail-' + (Math.floor(Math.random() * 4) + 1));
+        });
+        return false;
+    }
+    return true;
+}
+
 $(function() {
     makeTable(data, content);
     setupGrid();
@@ -268,59 +278,79 @@ $(function() {
     });
     $('#elements').html(els);
 
+    elementSet = new Set(elements);
+
     ready = true;
 
     $('.red .sphere').click(function(e) {
         e.preventDefault();
-        shape(this, 'red-sphere');
-        flipOne(this, 'r');
+        if (checkInventory('sphere')) {
+            shape(this, 'red-sphere');
+            flipOne(this, 'r');
+        }
     });
 
     $('.red .cube').click(function(e) {
         e.preventDefault();
-        shape(this, 'red-cube');
-        flipX(this, 'r');
+        if (checkInventory('cube')) {
+            shape(this, 'red-cube');
+            flipX(this, 'r');
+        }
     });
 
     $('.red .tetra').click(function(e) {
         e.preventDefault();
-        shape(this, 'red-tetra');
-        flipPlus(this, 'r');
+        if (checkInventory('tetra')) {
+            shape(this, 'red-tetra');
+            flipPlus(this, 'r');
+        }
     });
 
     $('.blue .sphere').click(function(e) {
         e.preventDefault();
-        shape(this, 'blue-sphere');
-        flipBetween(this, 'b');
+        if (checkInventory('sphere')) {
+            shape(this, 'blue-sphere');
+            flipBetween(this, 'b');
+        }
     });
 
     $('.blue .cube').click(function(e) {
         e.preventDefault();
-        shape(this, 'blue-cube');
-        flipExtendedX(this, 'b');
+        if (checkInventory('cube')) {
+            shape(this, 'blue-cube');
+            flipExtendedX(this, 'b');
+        }
     });
 
     $('.blue .tetra').click(function(e) {
         e.preventDefault();
-        shape(this, 'blue-tetra');
-        flipExtendedPlus(this, 'b');
+        if (checkInventory('tetra')) {
+            shape(this, 'blue-tetra');
+            flipExtendedPlus(this, 'b');
+        }
     });
 
     $('.yellow .sphere').click(function(e) {
         e.preventDefault();
-        shape(this, 'yellow-sphere');
-        flipRing(this, 'y');
+        if (checkInventory('sphere')) {
+            shape(this, 'yellow-sphere');
+            flipRing(this, 'y');
+        }
     });
 
     $('.yellow .cube').click(function(e) {
         e.preventDefault();
-        shape(this, 'yellow-cube');
-        flipOpposite(this, 'y');
+        if (checkInventory('cube')) {
+            shape(this, 'yellow-cube');
+            flipOpposite(this, 'y');
+        }
     });
 
     $('.yellow .tetra').click(function(e) {
         e.preventDefault();
-        shape(this, 'yellow-tetra');
-        rotateRing(this, 'y');
+        if (checkInventory('tetra')) {
+            shape(this, 'yellow-tetra');
+            rotateRing(this, 'y');
+        }
     });
 });

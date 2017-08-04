@@ -160,6 +160,10 @@ td {
 }
 
 .blink-success { animation: blinksuccess 500ms ease infinite; }
+.blink-fail-1 { animation: blinkcyan 1000ms ease infinite; }
+.blink-fail-2 { animation: blinkmagenta 2000ms ease infinite; }
+.blink-fail-3 { animation: blinkyellow 3000ms ease infinite; }
+.blink-fail-4 { animation: blinkred 4000ms ease infinite; }
 
 /*===============
 COLORS
@@ -461,36 +465,36 @@ BLINKING
 
 @keyframes blinksuccess {
   50% {
-    background-color: cyan; }
+    background-color: white; }
   100% {
     background-color: #777; }
 }
 
 @keyframes blinkcyan {
-  5% {
+  50% {
     background-color: cyan; }
-  10% {
+  100% {
     background-color: #777; }
 }
 
 @keyframes blinkmagenta {
-  5% {
+  50% {
     background-color: magenta; }
-  10% {
+  100% {
     background-color: #777; }
 }
 
 @keyframes blinkred {
-  5% {
+  50% {
     background-color: red; }
-  10% {
+  100% {
     background-color: #777; }
 }
 
 @keyframes blinkyellow {
-  5% {
+  50% {
     background-color: yellow; }
-  10% {
+  100% {
     background-color: #777; }
 }
 
