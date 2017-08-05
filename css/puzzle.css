@@ -117,19 +117,31 @@ td {
 [data-shape] .shape {
   opacity: 0; }
 
-[data-shape=red-sphere] .red .sphere,
-[data-shape=red-tetra] .red .tetra,
-[data-shape=red-cube] .red .cube,
-[data-shape=blue-sphere] .blue .sphere,
-[data-shape=blue-tetra] .blue .tetra,
-[data-shape=blue-cube] .blue .cube,
-[data-shape=yellow-sphere] .yellow .sphere,
-[data-shape=yellow-tetra] .yellow .tetra,
-[data-shape=yellow-cube] .yellow .cube {
+[data-color=red][data-shape=sphere] .red .sphere,
+[data-color=red][data-shape=tetra] .red .tetra,
+[data-color=red][data-shape=cube] .red .cube,
+[data-color=blue][data-shape=sphere] .blue .sphere,
+[data-color=blue][data-shape=tetra] .blue .tetra,
+[data-color=blue][data-shape=cube] .blue .cube,
+[data-color=yellow][data-shape=sphere] .yellow .sphere,
+[data-color=yellow][data-shape=tetra] .yellow .tetra,
+[data-color=yellow][data-shape=cube] .yellow .cube {
   opacity: 1; }
 
 .blink-success {
   animation: blinksuccess 500ms ease infinite; }
+
+.blink-fail-1 {
+  animation: blinkcyan 1000ms ease infinite; }
+
+.blink-fail-2 {
+  animation: blinkmagenta 2000ms ease infinite; }
+
+.blink-fail-3 {
+  animation: blinkyellow 3000ms ease infinite; }
+
+.blink-fail-4 {
+  animation: blinkred 4000ms ease infinite; }
 
 /*===============
 COLORS
@@ -172,6 +184,7 @@ COLORS
     background-color: #777; }
   100% {
     background-color: #777; } }
+
 .blink1 {
   animation: blink1 1.5s ease infinite; }
 
@@ -186,6 +199,7 @@ COLORS
     background-color: #777; }
   100% {
     background-color: #777; } }
+
 .blink2 {
   animation: blink2 2s ease infinite; }
 
@@ -204,6 +218,7 @@ COLORS
     background-color: #777; }
   100% {
     background-color: #777; } }
+
 .blink3 {
   animation: blink3 2.5s ease infinite; }
 
@@ -226,6 +241,7 @@ COLORS
     background-color: #777; }
   100% {
     background-color: #777; } }
+
 .blink4 {
   animation: blink4 3s ease infinite; }
 
@@ -252,6 +268,7 @@ COLORS
     background-color: #777; }
   100% {
     background-color: #777; } }
+
 .blink5 {
   animation: blink5 3.5s ease infinite; }
 
@@ -282,6 +299,7 @@ COLORS
     background-color: #777; }
   100% {
     background-color: #777; } }
+
 .blink6 {
   animation: blink6 4s ease infinite; }
 
@@ -374,29 +392,34 @@ BLINKING
 ===============*/
 @keyframes blinksuccess {
   50% {
+    background-color: white; }
+  100% {
+    background-color: #777; } }
+
+@keyframes blinkcyan {
+  50% {
     background-color: cyan; }
   100% {
     background-color: #777; } }
-@keyframes blinkcyan {
-  5% {
-    background-color: cyan; }
-  10% {
-    background-color: #777; } }
+
 @keyframes blinkmagenta {
-  5% {
+  50% {
     background-color: magenta; }
-  10% {
+  100% {
     background-color: #777; } }
+
 @keyframes blinkred {
-  5% {
+  50% {
     background-color: red; }
-  10% {
+  100% {
     background-color: #777; } }
+
 @keyframes blinkyellow {
-  5% {
+  50% {
     background-color: yellow; }
-  10% {
+  100% {
     background-color: #777; } }
+
 .s0 {
   animation: blinkcyan 4s 0s ease infinite; }
 
