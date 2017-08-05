@@ -252,6 +252,7 @@ var shape = function(el, color, shape) {
     var el = $(el).closest('td');
     if (el.attr('data-shape')) {
         el.attr('data-shape', '');
+        el.attr('data-color', '');
         return false;
     }
     el.attr('data-color', color);
