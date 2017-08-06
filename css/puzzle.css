@@ -16,7 +16,8 @@ html, body {
 .nav {
   background: #333;
   height: 4%;
-  position: relative; }
+  position: relative;
+  display: none; }
 
 #elements {
   display: block;
@@ -24,7 +25,8 @@ html, body {
   width: 80%;
   position: absolute;
   top: 0;
-  left: 0; }
+  left: 0;
+  color: #bbb; }
   #elements:hover {
     background: #555; }
 
@@ -44,11 +46,8 @@ html, body {
   #next:hover {
     background: #555; }
 
-#elements {
-  color: #bbb; }
-
 .container {
-  height: 96%; }
+  height: 100%; }
 
 table {
   font-family: arial, sans-serif;
@@ -58,18 +57,16 @@ table {
   height: 100%;
   border-collapse: collapse; }
 
+tr {
+  height: 12.5%; }
+
 td {
   border: 3px solid #777;
   text-align: center;
   background-image: url("/img/panel.png");
   background-color: #777;
   background-size: cover;
-  background-position: center center; }
-
-tr {
-  height: 12.5%; }
-
-td {
+  background-position: center center;
   width: 12.5%;
   font-size: 0; }
   td[data-lit] {
@@ -175,133 +172,6 @@ COLORS
 
 .k {
   background-color: black; }
-
-/*=============== BLINKING ===============*/
-@keyframes blink1 {
-  16.6666666667% {
-    background-color: cyan; }
-  33.3333333333% {
-    background-color: #777; }
-  100% {
-    background-color: #777; } }
-
-.blink1 {
-  animation: blink1 1.5s ease infinite; }
-
-@keyframes blink2 {
-  12.5% {
-    background-color: cyan; }
-  25% {
-    background-color: #777; }
-  37.5% {
-    background-color: cyan; }
-  50% {
-    background-color: #777; }
-  100% {
-    background-color: #777; } }
-
-.blink2 {
-  animation: blink2 2s ease infinite; }
-
-@keyframes blink3 {
-  9.6% {
-    background-color: cyan; }
-  19.2% {
-    background-color: #777; }
-  28.8% {
-    background-color: cyan; }
-  38.4% {
-    background-color: #777; }
-  48% {
-    background-color: cyan; }
-  57.6% {
-    background-color: #777; }
-  100% {
-    background-color: #777; } }
-
-.blink3 {
-  animation: blink3 2.5s ease infinite; }
-
-@keyframes blink4 {
-  8% {
-    background-color: cyan; }
-  16.6666666667% {
-    background-color: #777; }
-  24.6666666667% {
-    background-color: cyan; }
-  33.3333333333% {
-    background-color: #777; }
-  41.3333333333% {
-    background-color: cyan; }
-  50% {
-    background-color: #777; }
-  58% {
-    background-color: cyan; }
-  66.6666666667% {
-    background-color: #777; }
-  100% {
-    background-color: #777; } }
-
-.blink4 {
-  animation: blink4 3s ease infinite; }
-
-@keyframes blink5 {
-  7.1428571429% {
-    background-color: cyan; }
-  14.2857142857% {
-    background-color: #777; }
-  21.4285714286% {
-    background-color: cyan; }
-  28.5714285714% {
-    background-color: #777; }
-  35.7142857143% {
-    background-color: cyan; }
-  42.8571428571% {
-    background-color: #777; }
-  50% {
-    background-color: cyan; }
-  57.1428571429% {
-    background-color: #777; }
-  64.2857142857% {
-    background-color: cyan; }
-  71.4285714286% {
-    background-color: #777; }
-  100% {
-    background-color: #777; } }
-
-.blink5 {
-  animation: blink5 3.5s ease infinite; }
-
-@keyframes blink6 {
-  6% {
-    background-color: cyan; }
-  12% {
-    background-color: #777; }
-  18% {
-    background-color: cyan; }
-  24% {
-    background-color: #777; }
-  30% {
-    background-color: cyan; }
-  36% {
-    background-color: #777; }
-  42% {
-    background-color: cyan; }
-  48% {
-    background-color: #777; }
-  54% {
-    background-color: cyan; }
-  60% {
-    background-color: #777; }
-  66% {
-    background-color: cyan; }
-  72% {
-    background-color: #777; }
-  100% {
-    background-color: #777; } }
-
-.blink6 {
-  animation: blink6 4s ease infinite; }
 
 /*===============
 NUMBERS

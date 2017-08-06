@@ -32,6 +32,7 @@ $nav_height: 4%;
     position: absolute;
     top: 0;
     left: 0;
+    color: #bbb;
 
     &:hover {
         background:#555;
@@ -57,10 +58,6 @@ $nav_height: 4%;
     }
 }
 
-#elements {
-    color: #bbb;
-}
-
 .container {
     height: 100 - $nav_height;
 }
@@ -74,15 +71,6 @@ table {
     border-collapse: collapse;
 }
 
-td {
-    border: 3px solid #777;
-    text-align: center;
-    background-image: url("/img/panel.png");
-    background-color: #777;
-    background-size: cover;
-    background-position: center center;
-}
-
 tr {
     height: 12.5%;
 }
@@ -90,6 +78,12 @@ tr {
 $dim: 22px;
 
 td {
+    border: 3px solid #777;
+    text-align: center;
+    background-image: url("/img/panel.png");
+    background-color: #777;
+    background-size: cover;
+    background-position: center center;
     width: 12.5%;
     font-size: 0;
 
@@ -118,7 +112,6 @@ td {
 }
 
 #elements {
-    // padding: 0 1em;
     .shape {
         margin: .5em;
         opacity: 1;
@@ -182,250 +175,6 @@ COLORS
 .c { background-color: cyan; }
 .w { background-color: white; }
 .k { background-color: black; }
-
-/*=============== BLINKING ===============*/
-
-@mixin waitAnimate($options: ()) {
-  $options: map-merge((
-    animationName: waitAnimate,
-    duration: 1,
-    waitTime: 0,
-    timingFunction: linear,
-    iterationCount: infinite
-  ), $options);
-
-  $name: map-get($options, animationName);
-  $kf: map-get($options, keyframes);
-  $kfLength: length($kf);
-  $duration: map-get($options, duration);
-  $waitTime: map-get($options, waitTime);
-  $timingFunction: map-get($options, timingFunction);
-  $iterationCount: map-get($options, iterationCount);
-  $counter: 1; // index of 'each'
-
-  @keyframes #{$name} {
-    @each $frame, $prop in $kf {
-      #{$frame * $duration / ($duration + $waitTime)}% {
-        @each $k, $v in $prop {
-          #{$k}: #{$v}
-        }
-      }
-      // if last in loop and waitTime is not 0, add the last frame as 100% (this is what creates the pause)
-      @if $counter == $kfLength and $waitTime > 0 {
-        100% {
-          @each $k, $v in $prop {
-            #{$k}: #{$v}
-          }
-        }
-      }
-      $counter: $counter+1;
-    }
-  }
-
-  .#{$name} {
-    animation: #{$name} #{$duration + $waitTime}s #{$timingFunction} #{$iterationCount};
-  }
-}
-
-@include waitAnimate(
-  (
-    animationName: blink1,
-    keyframes: (
-      50: (
-        background-color: cyan
-      ),
-      100: (
-        background-color: #777
-      )
-    ),
-    duration: .5,
-    waitTime: 1,
-    timingFunction: ease,
-    iterationCount: infinite
-  )
-);
-
-@include waitAnimate(
-  (
-    animationName: blink2,
-    keyframes: (
-      25: (
-        background-color: cyan
-      ),
-      50: (
-        background-color: #777
-      ),
-      75: (
-        background-color: cyan
-      ),
-      100: (
-        background-color: #777
-      )
-    ),
-    duration: 1,
-    waitTime: 1,
-    timingFunction: ease,
-    iterationCount: infinite
-  )
-);
-
-
-@include waitAnimate(
-  (
-    animationName: blink3,
-    keyframes: (
-      16: (
-        background-color: cyan
-      ),
-      32: (
-        background-color: #777
-      ),
-      48: (
-        background-color: cyan
-      ),
-      64: (
-        background-color: #777
-      ),
-      80: (
-        background-color: cyan
-      ),
-      96: (
-        background-color: #777
-      )
-    ),
-    duration: 1.5,
-    waitTime: 1,
-    timingFunction: ease,
-    iterationCount: infinite
-  )
-);
-
-@include waitAnimate(
-  (
-    animationName: blink4,
-    keyframes: (
-      12: (
-        background-color: cyan
-      ),
-      25: (
-        background-color: #777
-      ),
-      37: (
-        background-color: cyan
-      ),
-      50: (
-        background-color: #777
-      ),
-      62: (
-        background-color: cyan
-      ),
-      75: (
-        background-color: #777
-      ),
-      87: (
-        background-color: cyan
-      ),
-      100: (
-        background-color: #777
-      )
-    ),
-    duration: 2,
-    waitTime: 1,
-    timingFunction: ease,
-    iterationCount: infinite
-  )
-);
-
-@include waitAnimate(
-  (
-    animationName: blink5,
-    keyframes: (
-      10: (
-        background-color: cyan
-      ),
-      20: (
-        background-color: #777
-      ),
-      30: (
-        background-color: cyan
-      ),
-      40: (
-        background-color: #777
-      ),
-      50: (
-        background-color: cyan
-      ),
-      60: (
-        background-color: #777
-      ),
-      70: (
-        background-color: cyan
-      ),
-      80: (
-        background-color: #777
-      ),
-      90: (
-        background-color: cyan
-      ),
-      100: (
-        background-color: #777
-      )
-    ),
-    duration: 2.5,
-    waitTime: 1,
-    timingFunction: ease,
-    iterationCount: infinite
-  )
-);
-
-@include waitAnimate(
-  (
-    animationName: blink6,
-    keyframes: (
-      8: (
-        background-color: cyan
-      ),
-      16: (
-        background-color: #777
-      ),
-      24: (
-        background-color: cyan
-      ),
-      32: (
-        background-color: #777
-      ),
-      40: (
-        background-color: cyan
-      ),
-      48: (
-        background-color: #777
-      ),
-      56: (
-        background-color: cyan
-      ),
-      64: (
-        background-color: #777
-      ),
-      72: (
-        background-color: cyan
-      ),
-      80: (
-        background-color: #777
-      ),
-      88: (
-        background-color: cyan
-      ),
-      96: (
-        background-color: #777
-      )
-    ),
-    duration: 3,
-    waitTime: 1,
-    timingFunction: ease,
-    iterationCount: infinite
-  )
-);
-
 
 /*===============
 NUMBERS
