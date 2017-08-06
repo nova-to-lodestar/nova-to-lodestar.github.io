@@ -11,43 +11,50 @@ body {
   margin: 0; }
 
 html, body {
-  height: 100%; }
+  height: 100%;
+  background: #333; }
 
 .nav {
-  background: #333;
-  height: 4%;
-  position: relative;
-  display: none; }
+  position: absolute;
+  width: 20%;
+  color: white;
+  height: 100%;
+  font-family: Helvetica;
+  text-align: center; }
+  .nav a {
+    color: white;
+    padding: .5em  0;
+    display: block;
+    font-size: 1.1em;
+    color: #bbb; }
+    .nav a:hover {
+      background: #555;
+      color: white; }
+
+.elements {
+  padding-top: 10%;
+  border-bottom: 1px solid #555; }
+  .elements strong {
+    font-size: 1.5em; }
 
 #elements {
   display: block;
-  height: 100%;
-  width: 80%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  color: #bbb; }
-  #elements:hover {
-    background: #555; }
+  color: #bbb;
+  margin: 20px 0; }
 
-#next {
+.next {
   display: block;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 19%;
-  text-align: right;
   color: white;
-  text-decoration: none;
-  font-family: Helvetica;
-  padding: 0;
-  font-size: 1.3em; }
-  #next:hover {
+  padding: 0; }
+  .next:hover {
     background: #555; }
 
 .container {
-  height: 100%; }
+  display: inline-block;
+  width: 80%;
+  margin-left: 20%;
+  height: 100%;
+  font-size: 1rem; }
 
 table {
   font-family: arial, sans-serif;
@@ -84,10 +91,6 @@ td {
   margin: 5px 3px;
   opacity: 0; }
 
-#elements .shape {
-  margin: .5em;
-  opacity: 1; }
-
 .sphere {
   border-radius: 50%; }
 
@@ -98,6 +101,19 @@ td {
   border-right: 14.3px solid transparent;
   border-bottom: 22px solid white;
   background: none !important; }
+
+#elements .shape {
+  margin: .5em;
+  opacity: 1;
+  width: 44px;
+  height: 44px; }
+
+#elements .tetra {
+  width: 0;
+  height: 0;
+  border-left: 28.6px solid transparent;
+  border-right: 28.6px solid transparent;
+  border-bottom: 44px solid white; }
 
 .red .shape {
   background: red;

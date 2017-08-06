@@ -284,13 +284,15 @@ $(function() {
     els = '';
     elements.sort();
     $.each(elements, function(i, shape) {
-        els += '<span class="shape ' + shape + '" href="#"></span>';
+        els += '<span class="shape ' + shape + '" href="#"></span><br>';
     });
     $('#elements').html(els);
 
-    elementSet = new Set(elements);
-
     ready = true;
+
+    $('.refresh').click(function () {
+        location.reload();
+    })
 
     $('.red .sphere').click(function(e) {
         e.preventDefault();
