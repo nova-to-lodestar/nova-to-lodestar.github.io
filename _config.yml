@@ -34,10 +34,19 @@ exclude:
 
 # Collections
 collections:
-  playtest:
+  low:
     output: true
-    title: Playtest
+    title: Low
     permalink: /:collection/:path/index.html
+  med:
+    output: true
+    title: Medium
+    permalink: /:collection/:path/index.html
+  high:
+    output: true
+    title: High
+    permalink: /:collection/:path/index.html
+
   red:
     output: true
     title: Red
