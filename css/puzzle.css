@@ -52,10 +52,13 @@ a.hidden-elements {
   font-size: 2em;
   text-decoration: none; }
 
-.medium #elements {
+.newvalue {
   display: none; }
 
-.medium .hidden-elements {
+.hide-shapes #elements {
+  display: none; }
+
+.hide-shapes .hidden-elements {
   display: block; }
 
 #elements {

@@ -70,7 +70,11 @@ a.hidden-elements {
     text-decoration: none;
 }
 
-.medium {
+.newvalue {
+    display: none;
+}
+
+.hide-shapes {
     #elements {
         display: none;
     }

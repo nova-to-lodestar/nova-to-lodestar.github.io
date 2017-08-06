@@ -301,7 +301,7 @@ $(function() {
     $('.hidden-elements').click(function () {
         $(this).hide();
         $('#elements').show();
-        $('.value').html("2:00");
+        $('.value').html($('.newvalue').html());
     });
 
     $('.red .sphere').click(function(e) {

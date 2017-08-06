@@ -7,53 +7,18 @@ layout: default
     <h2>Playtest</h2>
     <ul class="post-list">
       <li><a class="page-link" href="low/00/">Low</a></li>
-      <li><a class="page-link" href="low/00/">Medium</a></li>
-      <li><a class="page-link" href="low/00/">High</a></li>
+      <li><a class="page-link" href="med/00/">Medium</a></li>
+      <li><a class="page-link" href="high/00/">High</a></li>
     </ul>
 
-
-    <h2>Puzzles</h2>
-    <ol class="post-list">
-      <li><a class="page-link" href="red/1/">Puzzle r1</a></li>
-      <li><a class="page-link" href="red/3/">Puzzle r3</a></li>
-      <li><a class="page-link" href="blue/2/">Puzzle b2</a></li>
-      <li><a class="page-link" href="yellow/1/">Puzzle y1</a></li>
-      <li><a class="page-link" href="red/2/">Puzzle r2</a></li>
-      <li><a class="page-link" href="blue/4/">Puzzle b4</a></li>
-      <li><a class="page-link" href="red/3/">Puzzle r3</a></li>
-      <li><a class="page-link" href="blue/3/">Puzzle b3</a></li>
-      <li><a class="page-link" href="blue/5/">Puzzle b5</a></li>
-      <li><a class="page-link" href="yellow/3/">Puzzle y3</a></li>
-      <li><a class="page-link" href="blue/6/">Puzzle b6</a></li>
-      <li><a class="page-link" href="red/4/">Puzzle r4</a></li>
-      <li><a class="page-link" href="yellow/5/">Puzzle y5</a></li>
-      <li><a class="page-link" href="blue/7/">Puzzle b7</a></li>
-      <li><a class="page-link" href="red/5/">Puzzle r5</a></li>
-      <li><a class="page-link" href="yellow/6/">Puzzle y6</a></li>
-      <li><a class="page-link" href="yellow/8/">Puzzle y8</a></li>
-      <li><a class="page-link" href="blue/9/">Puzzle b9</a></li>
-      <li><a class="page-link" href="yellow/9/">Puzzle y9</a></li>
-
-      <li><a class="page-link" href="red_yellow/1/">Puzzle ry1</a></li>
-      <li><a class="page-link" href="red_yellow/2/">Puzzle ry2</a></li>
-      <li><a class="page-link" href="blue_red/1/">Puzzle br1</a></li>
-      <li><a class="page-link" href="yellow_blue/1/">Puzzle yb1</a></li>
-      <li><a class="page-link" href="blue_red/2/">Puzzle br2</a></li>
-      <li><a class="page-link" href="red_yellow/3/">Puzzle ry3</a></li>
-      <li><a class="page-link" href="yellow_blue/2/">Puzzle yb2</a></li>
-      <li><a class="page-link" href="blue_red/3/">Puzzle br3</a></li>
-      <li><a class="page-link" href="red_yellow/4/">Puzzle ry4</a></li>
-      <li><a class="page-link" href="blue_red/4/">Puzzle br4</a></li>
-      <li><a class="page-link" href="yellow_blue/4/">Puzzle yb4</a></li>
-      <li><a class="page-link" href="blue_red/5/">Puzzle br5</a></li>
-      <li><a class="page-link" href="red_yellow/5/">Puzzle ry5</a></li>
-
-      <li><a class="page-link" href="white/1/">Puzzle w1</a></li>
-      <li><a class="page-link" href="white/2/">Puzzle w2</a></li>
-      <li><a class="page-link" href="white/3/">Puzzle w3</a></li>
-      <li><a class="page-link" href="white/4/">Puzzle w4</a></li>
-      <li><a class="page-link" href="white/5/">Puzzle w5</a></li>
-      <li><a class="page-link" href="white/6/">Puzzle w6</a></li>
-    </ol>
-
+    {% for collection in site.collections %}
+        <h2>{{ collection.title }}</h2>
+        <ul class="post-list">
+            {% for doc in collection.docs %}
+              <li>
+                  <a class="page-link" href="{{ doc.url | prepend: site.baseurl }}">{{ doc.title }}</a>
+              </li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
 </div>

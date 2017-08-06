@@ -47,37 +47,16 @@ collections:
     title: High
     permalink: /:collection/:path/index.html
 
-  red:
-    output: true
-    title: Red
-    permalink: /:collection/:path/index.html
-  blue:
-    output: true
-    title: Blue
-    permalink: /:collection/:path/index.html
-  yellow:
-    output: true
-    title: Yellow
-    permalink: /:collection/:path/index.html
-
-  red_yellow:
-    output: true
-    title: Red and Yellow
-    permalink: /:collection/:path/index.html
-  blue_red:
-    output: true
-    title: Blue and Red
-    permalink: /:collection/:path/index.html
-  yellow_blue:
-    output: true
-    title: Yellow and Blue
-    permalink: /:collection/:path/index.html
-
-  secondaries:
-    output: true
-    title: Secondaries
-    permalink: /:collection/:path/index.html
-  white:
-    output: true
-    title: White
-    permalink: /:collection/:path/index.html
+defaults:
+  - scope:
+      type: low
+    values:
+      layout: low
+  - scope:
+      type: med
+    values:
+      layout: medium
+  - scope:
+      type: high
+    values:
+      layout: high
