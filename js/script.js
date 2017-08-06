@@ -290,7 +290,7 @@ $(function() {
         questionMarks += "?<br>";
     });
     $('#elements').html(els);
-    $('.hidden-elements').html(questionMarks);
+    $('.hidden-elements').html(questionMarks + "<span class='reveal'>Reveal elements for decreased value</span>");
 
     ready = true;
 
