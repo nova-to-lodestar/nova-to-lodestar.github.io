@@ -40,14 +40,38 @@ $nav_width: 20%;
             color: white;
         }
     }
-}
-
-.elements {
-    padding-top: 10%;
-    border-bottom: 1px solid #555;
 
     strong {
         font-size: 1.5em;
+        margin: .5em 0;
+        display: block;
+    }
+}
+
+.value {
+    background:black;
+    font-size: 1.5em;
+    padding: .2em 0;
+}
+
+.elements {
+    border-bottom: 1px solid #555;
+
+}
+
+a.hidden-elements {
+    display: none;
+    font-size: 2em;
+    text-decoration: none;
+}
+
+.medium {
+    #elements {
+        display: none;
+    }
+
+    .hidden-elements {
+        display: block;
     }
 }
 

@@ -282,17 +282,26 @@ $(function() {
     setupGrid();
 
     els = '';
+    questionMarks = '';
     elements.sort();
     $.each(elements, function(i, shape) {
         els += '<span class="shape ' + shape + '" href="#"></span><br>';
+        questionMarks += "?<br>";
     });
     $('#elements').html(els);
+    $('.hidden-elements').html(questionMarks);
 
     ready = true;
 
     $('.refresh').click(function () {
         location.reload();
     })
+
+    $('.hidden-elements').click(function () {
+        $(this).hide();
+        $('#elements').show();
+        $('.value').html("2:00");
+    });
 
     $('.red .sphere').click(function(e) {
         e.preventDefault();

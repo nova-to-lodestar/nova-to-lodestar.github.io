@@ -30,12 +30,29 @@ html, body {
     .nav a:hover {
       background: #555;
       color: white; }
+  .nav strong {
+    font-size: 1.5em;
+    margin: .5em 0;
+    display: block; }
+
+.value {
+  background: black;
+  font-size: 1.5em;
+  padding: .2em 0; }
 
 .elements {
-  padding-top: 10%;
   border-bottom: 1px solid #555; }
-  .elements strong {
-    font-size: 1.5em; }
+
+a.hidden-elements {
+  display: none;
+  font-size: 2em;
+  text-decoration: none; }
+
+.medium #elements {
+  display: none; }
+
+.medium .hidden-elements {
+  display: block; }
 
 #elements {
   display: block;
