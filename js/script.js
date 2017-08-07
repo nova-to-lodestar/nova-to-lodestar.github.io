@@ -66,10 +66,7 @@ var getCell = function(row, col) {
 
 var isDone = function() {
     if (ready && $('td.r, td.b, td.y, td.p, td.o, td.g, td.w').length == 0) {
-        var audioElement = document.createElement('audio');
-        audioElement.setAttribute('src', '/mp3/done.mp3');
-        audioElement.setAttribute('autoplay', 'autoplay');
-
+        $('#success').trigger('play');
         $('td').addClass('blink-success');
     }
 }
@@ -270,9 +267,7 @@ var checkInventory = function() {
             $(this).attr('class', 'blink-fail-' + (Math.floor(Math.random() * 4) + 1));
         });
         $('.msg-box').html('<strong class="error">Error: wrong minerals</strong>')
-        var audioElement = document.createElement('audio');
-        audioElement.setAttribute('src', '/mp3/buzzer.m4a');
-        audioElement.setAttribute('autoplay', 'autoplay');
+        $('#fail').trigger('play');
         return false;
     }
     return true;
