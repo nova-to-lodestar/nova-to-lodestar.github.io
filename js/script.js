@@ -234,15 +234,15 @@ var usedColors = new Set();
 
 var turnOn = function(r, c, color) { flip(getCell(r, c), color); };
 
-var redSphere = function(r, c) { flip(getCell(r, c), 'r'); elements.push('sphere'); usedColors.add('red')};
-var redCube = function(r, c) { flipX(getCell(r, c), 'r'); elements.push('cube'); usedColors.add('red')};
-var redTetra = function(r, c) { flipPlus(getCell(r, c), 'r'); elements.push('tetra'); usedColors.add('red')};
+var redSphere = function(r, c) { flip(getCell(r, c), 'r'); elements.push('sphere'); usedColors.add('r')};
+var redCube = function(r, c) { flipX(getCell(r, c), 'r'); elements.push('cube'); usedColors.add('r')};
+var redTetra = function(r, c) { flipPlus(getCell(r, c), 'r'); elements.push('tetra'); usedColors.add('r')};
 // var blueSphere = function(r, c) { flip(getCell(r, c), 'b'); elements.push('sphere')};
-var blueCube = function(r, c) { flipExtendedX(getCell(r, c), 'b'); elements.push('cube'); usedColors.add('blue')};
-var blueTetra = function(r, c) { flipExtendedPlus(getCell(r, c), 'b'); elements.push('tetra'); usedColors.add('blue')};
-var yellowSphere = function(r, c) { flipRing(getCell(r, c), 'y'); elements.push('sphere'); usedColors.add('yellow')};
-var yellowCube = function(r, c) { flipOpposite(getCell(r, c), 'y'); elements.push('cube'); usedColors.add('yellow')};
-var yellowTetra = function(r, c) { rotateRing(getCell(r, c), 'y'); elements.push('tetra'); usedColors.add('yellow')};
+var blueCube = function(r, c) { flipExtendedX(getCell(r, c), 'b'); elements.push('cube'); usedColors.add('b')};
+var blueTetra = function(r, c) { flipExtendedPlus(getCell(r, c), 'b'); elements.push('tetra'); usedColors.add('b')};
+var yellowSphere = function(r, c) { flipRing(getCell(r, c), 'y'); elements.push('sphere'); usedColors.add('y')};
+var yellowCube = function(r, c) { flipOpposite(getCell(r, c), 'y'); elements.push('cube'); usedColors.add('y')};
+var yellowTetra = function(r, c) { rotateRing(getCell(r, c), 'y'); elements.push('tetra'); usedColors.add('y')};
 
 var shape = function(el, color, shape) {
     var el = $(el).closest('td');
@@ -265,9 +265,9 @@ var checkInventory = function() {
     var cubeOver = $('[data-shape=cube]').length > (shapeCounts['cube'] || 0);
     var tetraOver = $('[data-shape=tetra]').length > (shapeCounts['tetra'] || 0);
 
-    var redOver = $('[data-color=red]').length > 0 && !usedColors.has("red");
-    var blueOver = $('[data-color=blue]').length > 0 && !usedColors.has("blue");
-    var yellowOver = $('[data-color=yellow]').length > 0 && !usedColors.has("yellow");
+    var redOver = $('[data-color=red]').length > 0 && !usedColors.has("r");
+    var blueOver = $('[data-color=blue]').length > 0 && !usedColors.has("b");
+    var yellowOver = $('[data-color=yellow]').length > 0 && !usedColors.has("y");
 
     var errorMessage = "";
 
