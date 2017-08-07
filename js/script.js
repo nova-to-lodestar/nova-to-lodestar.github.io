@@ -266,7 +266,7 @@ var checkInventory = function() {
         $('td').each(function(i) {
             $(this).attr('class', 'blink-fail-' + (Math.floor(Math.random() * 4) + 1));
         });
-        $('.msg-box').html('<strong class="error">Error: wrong minerals</strong>')
+        $('.msg-box').html('<strong class="error">Error: wrong mineral shapes</strong>')
         $('#fail').trigger('play');
         return false;
     }
