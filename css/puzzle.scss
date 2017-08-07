@@ -61,7 +61,6 @@ $nav_width: 20%;
 
 .elements {
     border-bottom: 1px solid #555;
-
 }
 
 a.hidden-elements {
@@ -88,10 +87,12 @@ a.hidden-elements {
     display: block;
     color: #bbb;
     margin: 20px 0;
+    background:black;
 }
 
 .reveal {
     font-size: 1rem;
+    padding: 0 1em;
     display: block;
     line-height: 1rem;
 }
