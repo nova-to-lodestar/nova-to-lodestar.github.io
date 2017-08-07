@@ -1,0 +1,37 @@
+---
+---
+<!DOCTYPE html>
+<html>
+<head>
+<title>All</title>
+<link rel="stylesheet" type="text/css" href="/css/puzzle.css">
+<script src="//code.jquery.com/jquery-3.1.0.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+<script>
+var toggleColor = '';
+</script>
+<script src="/js/script.js"></script>
+</head>
+<body class="all">
+
+{% for collection in site.collections %}
+    <h2>{{ collection.title }}</h2>
+    {% for doc in collection.docs %}
+        {% if doc.title == "Blank" %}
+            {% continue %}
+        {% endif %}
+        <a href="{{ doc.url }}">{{ doc.title }}</a>
+        <section class="container-{{ doc.title | slugify }}"></section>
+        {{ doc.content }}
+        <script>
+        var slug = '{{ doc.title | slugify }}';
+        makeTable('.container-{{ doc.title | slugify }}');
+        setupGrid();
+        </script>
+    {% endfor %}
+{% endfor %}
+
+</body>
+
+</html>
+

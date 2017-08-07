@@ -21,26 +21,27 @@ var shapes = [
     'tetra'
 ]
 
-var makeTable = function() {
+var makeTable = function(containerSelector) {
     var html = '<table id="' + slug + '">';
     $.each(new Array(8), function(i, value) {
         html += '<tr data-num=' + (i + 1) + '>';
         $.each(new Array(8), function(j, value) {
-            html += '<td data-num=' + (j + 1) + ' data-shape>';
-            $.each(colors, function(k, color) {
-                html += '<div class="' + color + '">'
-                $.each(shapes, function(l, shape) {
-                    html += '<a class="shape ' + shape + '" href="/"></a>';
+            html += '<td data-num=' + (j + 1) + ' data-shape class="">';
+            if (containerSelector == ".container-single") {
+                $.each(colors, function(k, color) {
+                    html += '<div class="' + color + '">'
+                    $.each(shapes, function(l, shape) {
+                        html += '<a class="shape ' + shape + '" href="/"></a>';
+                    });
+                    html += '</div>'
                 });
-                html += '</div>'
-            });
-            html += '</a></td>';
+            }
         });
         html += '</tr>';
     });
     html += '</table>';
 
-    $('.container').html(html);
+    $(containerSelector).html(html);
 }
 
 var getCell = function(row, col) {
@@ -116,17 +117,19 @@ var flipRing = function(el, color) {
 };
 
 var flipExtendedPlus = function(el, color) {
+    var table = $(el).closest('table');
     var td = $(el).closest('td');
     var tr = $(el).closest('td').parent();
     var tdnum = td.attr('data-num');
 
     flip(td.siblings(), color);
-    flip($('td[data-num=' + tdnum + ']'), color);
+    flip(table.find('td[data-num=' + tdnum + ']'), color);
 
     isDone();
 };
 
 var flipExtendedX = function(el, color) {
+    var table = $(el).closest('table');
     var td = $(el).closest('td');
     var tr = $(el).closest('td').parent();
     var tdnum = parseInt(td.attr('data-num'));
@@ -134,37 +137,39 @@ var flipExtendedX = function(el, color) {
 
     flip(td, color);
     $.each(Array(8), function(i, n) {
-        flip($('tr[data-num=' + (trnum - i) + '] td[data-num=' + (tdnum - i) + ']'), color);
-        flip($('tr[data-num=' + (trnum + i) + '] td[data-num=' + (tdnum - i) + ']'), color);
-        flip($('tr[data-num=' + (trnum - i) + '] td[data-num=' + (tdnum + i) + ']'), color);
-        flip($('tr[data-num=' + (trnum + i) + '] td[data-num=' + (tdnum + i) + ']'), color);
+        flip(table.find('tr[data-num=' + (trnum - i) + '] td[data-num=' + (tdnum - i) + ']'), color);
+        flip(table.find('tr[data-num=' + (trnum + i) + '] td[data-num=' + (tdnum - i) + ']'), color);
+        flip(table.find('tr[data-num=' + (trnum - i) + '] td[data-num=' + (tdnum + i) + ']'), color);
+        flip(table.find('tr[data-num=' + (trnum + i) + '] td[data-num=' + (tdnum + i) + ']'), color);
     });
 
     isDone();
 };
 
 var flipOpposite = function(el, color) {
+    var table = $(el).closest('table');
     var td = $(el).closest('td');
     var tr = $(el).closest('td').parent();
     var tdnum = parseInt(td.attr('data-num'));
     var trnum = parseInt(tr.attr('data-num'));
 
-    flip($('tr[data-num=' + (8-trnum+1) + '] td[data-num=' + (8-tdnum+1) + ']'), color);
+    flip(table.find('tr[data-num=' + (8-trnum+1) + '] td[data-num=' + (8-tdnum+1) + ']'), color);
 
     isDone();
 };
 
 var rotateRing = function(el, color) {
+    var table = $(el).closest('table');
     var td = $(el).closest('td');
     var tr = $(el).closest('td').parent();
     var tdnum = parseInt(td.attr('data-num'));
     var trnum = parseInt(tr.attr('data-num'));
 
-    states = [
+    var states = [
         [
-            $('tr[data-num=' + (trnum - 1) + '] td[data-num=' + (tdnum - 1) + ']').attr('class'),
-            $('tr[data-num=' + (trnum - 1) + '] td[data-num=' + (tdnum) + ']').attr('class'),
-            $('tr[data-num=' + (trnum - 1) + '] td[data-num=' + (tdnum + 1) + ']').attr('class')
+            table.find('tr[data-num=' + (trnum - 1) + '] td[data-num=' + (tdnum - 1) + ']').attr('class'),
+            table.find('tr[data-num=' + (trnum - 1) + '] td[data-num=' + (tdnum) + ']').attr('class'),
+            table.find('tr[data-num=' + (trnum - 1) + '] td[data-num=' + (tdnum + 1) + ']').attr('class')
         ],
         [
             td.prev().attr('class'),
@@ -172,20 +177,24 @@ var rotateRing = function(el, color) {
             td.next().attr('class')
         ],
         [
-            $('tr[data-num=' + (trnum + 1) + '] td[data-num=' + (tdnum - 1) + ']').attr('class'),
-            $('tr[data-num=' + (trnum + 1) + '] td[data-num=' + (tdnum) + ']').attr('class'),
-            $('tr[data-num=' + (trnum + 1) + '] td[data-num=' + (tdnum + 1) + ']').attr('class')
+            table.find('tr[data-num=' + (trnum + 1) + '] td[data-num=' + (tdnum - 1) + ']').attr('class'),
+            table.find('tr[data-num=' + (trnum + 1) + '] td[data-num=' + (tdnum) + ']').attr('class'),
+            table.find('tr[data-num=' + (trnum + 1) + '] td[data-num=' + (tdnum + 1) + ']').attr('class')
         ]
-    ]
+    ];
 
-    $('tr[data-num=' + (trnum - 1) + '] td[data-num=' + (tdnum - 1) + ']').attr('class', states[2][2]);
-    $('tr[data-num=' + (trnum - 1) + '] td[data-num=' + (tdnum) + ']').attr('class', states[2][1]);
-    $('tr[data-num=' + (trnum - 1) + '] td[data-num=' + (tdnum + 1) + ']').attr('class', states[2][0]);
+    console.log(states);
+
+    console.log(table.find('tr[data-num=' + (trnum - 1) + '] td[data-num=' + (tdnum - 1) + ']'), states[2][2]);
+
+    table.find('tr[data-num=' + (trnum - 1) + '] td[data-num=' + (tdnum - 1) + ']').attr('class', states[2][2]);
+    table.find('tr[data-num=' + (trnum - 1) + '] td[data-num=' + (tdnum) + ']').attr('class', states[2][1]);
+    table.find('tr[data-num=' + (trnum - 1) + '] td[data-num=' + (tdnum + 1) + ']').attr('class', states[2][0]);
     td.prev().attr('class', states[1][2]);
     td.next().attr('class', states[1][0]);
-    $('tr[data-num=' + (trnum + 1) + '] td[data-num=' + (tdnum - 1) + ']').attr('class', states[0][2]),
-    $('tr[data-num=' + (trnum + 1) + '] td[data-num=' + (tdnum) + ']').attr('class', states[0][1]),
-    $('tr[data-num=' + (trnum + 1) + '] td[data-num=' + (tdnum + 1) + ']').attr('class', states[0][0])
+    table.find('tr[data-num=' + (trnum + 1) + '] td[data-num=' + (tdnum - 1) + ']').attr('class', states[0][2]),
+    table.find('tr[data-num=' + (trnum + 1) + '] td[data-num=' + (tdnum) + ']').attr('class', states[0][1]),
+    table.find('tr[data-num=' + (trnum + 1) + '] td[data-num=' + (tdnum + 1) + ']').attr('class', states[0][0])
 }
 
 var flipBetween = function(el) {
@@ -258,7 +267,7 @@ var checkInventory = function() {
 }
 
 $(function() {
-    makeTable();
+    makeTable('.container-single');
     setupGrid();
 
     els = '';

@@ -110,7 +110,7 @@ a.hidden-elements {
     }
 }
 
-.container {
+.container-single {
     display: inline-block;
     width: 100% - $nav_width;
     margin-left: $nav_width;
@@ -316,4 +316,23 @@ BLINKING
     background-color: yellow; }
   100% {
     background-color: #777; }
+}
+
+.all {
+    color: white;
+    font-family: Helvetica;
+
+    a {
+        color: white;
+    }
+
+    section {
+        width: 200px;
+        height: 200px;
+    }
+
+    td {
+        background-image: none !important;
+        border-color: #333;
+    }
 }
