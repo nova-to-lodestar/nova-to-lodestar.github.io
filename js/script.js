@@ -285,7 +285,7 @@ $(function() {
         questionMarks += "?<br>";
     });
     $('#elements').html(els);
-    $('.hidden-elements').html(questionMarks + "<span class='reveal'>Reveal elements for decreased value</span>");
+    $('.hidden-elements').html(questionMarks + "<span class='reveal'>Reveal elements for 50% of value.</span>");
 
     ready = true;
 
