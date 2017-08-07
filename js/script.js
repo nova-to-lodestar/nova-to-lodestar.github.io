@@ -6,20 +6,8 @@
 //     [false,false,false,false,false,false,false,false]
 // ];
 
-var content = null;
 var setupGrid = function() {};
 var ready = false;
-
-var data = [
-    ["","","","","","","",""],
-    ["","","","","","","",""],
-    ["","","","","","","",""],
-    ["","","","","","","",""],
-    ["","","","","","","",""],
-    ["","","","","","","",""],
-    ["","","","","","","",""],
-    ["","","","","","","",""]
-];
 
 var colors = [
     'red',
@@ -33,16 +21,12 @@ var shapes = [
     'tetra'
 ]
 
-var makeTable = function(classes, content) {
-    var html = '<table>';
-    $.each(classes, function(i, value) {
+var makeTable = function() {
+    var html = '<table id="' + slug + '">';
+    $.each(new Array(8), function(i, value) {
         html += '<tr data-num=' + (i + 1) + '>';
-        $.each(value, function(j, value) {
-            text = "";
-            if (content != null) {
-                text = content[i][j];
-            }
-            html += '<td data-num=' + (j + 1) + ' ' + ' class="' + value + '" data-shape="">';
+        $.each(new Array(8), function(j, value) {
+            html += '<td data-num=' + (j + 1) + ' data-shape>';
             $.each(colors, function(k, color) {
                 html += '<div class="' + color + '">'
                 $.each(shapes, function(l, shape) {
@@ -51,7 +35,6 @@ var makeTable = function(classes, content) {
                 html += '</div>'
             });
             html += '</a></td>';
-            // html += '<td class="on ' + value + '">' + text + '</td>';
         });
         html += '</tr>';
     });
@@ -61,7 +44,7 @@ var makeTable = function(classes, content) {
 }
 
 var getCell = function(row, col) {
-    return $('tr[data-num=' + row + '] td[data-num=' + col + ']');
+    return $('#' + slug).find('tr[data-num=' + row + '] td[data-num=' + col + ']');
 }
 
 var isDone = function() {
@@ -274,7 +257,7 @@ var checkInventory = function() {
 }
 
 $(function() {
-    makeTable(data, content);
+    makeTable();
     setupGrid();
 
     els = '';
