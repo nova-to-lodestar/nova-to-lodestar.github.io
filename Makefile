@@ -1,2 +1,2 @@
 run:
-	bundle exec jekyll serve --watch -P 1234
+	bundle exec jekyll serve -P 1234
