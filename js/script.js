@@ -257,15 +257,33 @@ var shape = function(el, color, shape) {
 };
 
 var checkInventory = function() {
-    var c = _.countBy(elements, function(n) { return n; });
-    var sphereOver = $('[data-shape=sphere]').length > (c['sphere'] || 0);
-    var cubeOver = $('[data-shape=cube]').length > (c['cube'] || 0);
-    var tetraOver = $('[data-shape=tetra]').length > (c['tetra'] || 0);
-    if (sphereOver || cubeOver || tetraOver) {
+    var shapeCounts = _.countBy(elements, function(n) { return n; });
+
+    var elementsOver = $('[data-shape][data-color]').length > elements.length;
+
+    var sphereOver = $('[data-shape=sphere]').length > (shapeCounts['sphere'] || 0);
+    var cubeOver = $('[data-shape=cube]').length > (shapeCounts['cube'] || 0);
+    var tetraOver = $('[data-shape=tetra]').length > (shapeCounts['tetra'] || 0);
+
+    var redOver = $('[data-color=red]').length > 0 && !usedColors.has("red");
+    var blueOver = $('[data-color=blue]').length > 0 && !usedColors.has("blue");
+    var yellowOver = $('[data-color=yellow]').length > 0 && !usedColors.has("yellow");
+
+    var errorMessage = "";
+
+    if (elementsOver) {
+        errorMessage = "Error: too many minerals.";
+    } else if (sphereOver || cubeOver || tetraOver) {
+        errorMessage = "Error: wrong mineral shape.";
+    } else if (redOver || blueOver || yellowOver) {
+        errorMessage = "Error: wrong mineral color.";
+    }
+
+    if (errorMessage != "") {
         $('td').each(function(i) {
             $(this).attr('class', 'blink-fail-' + (Math.floor(Math.random() * 4) + 1));
         });
-        $('.msg-box').html('<strong class="error">Error: wrong mineral shapes</strong>')
+        $('.msg-box').html('<strong class="error">' + errorMessage + '</strong>')
         $('#fail').trigger('play');
         return false;
     }
