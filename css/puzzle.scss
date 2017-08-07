@@ -234,7 +234,7 @@ COLORS
 }
 
 .x {}
-.b { @extend %lit; background-color: blue; }
+.b { @extend %lit; background-color: lighten(blue, 10%); }
 .r { @extend %lit; background-color: red; }
 .y { @extend %lit; background-color: yellow; }
 
