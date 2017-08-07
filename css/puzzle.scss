@@ -136,7 +136,7 @@ $dim: 22px;
 td {
     border: 3px solid #777;
     text-align: center;
-    background-image: url("/img/panel.png");
+    background-image: url("/img/panel-lit.png");
     background-color: #777;
     background-size: cover;
     background-position: center center;
@@ -229,19 +229,23 @@ td {
 COLORS
 ===============*/
 
+%lit {
+    background-image: url("/img/panel-unlit.png"); // There's also panel-lit.png if we want it.
+}
+
 .x {}
-.b { background-color: blue; }
-.r { background-color: red; }
-.y { background-color: yellow; }
+.b { @extend %lit; background-color: blue; }
+.r { @extend %lit; background-color: red; }
+.y { @extend %lit; background-color: yellow; }
 
-.g, .y.b { background-color: #01a611; }
-.p, .r.b { background-color: lighten(purple, 10%); }
-.o, .r.y { background-color: orange; }
+.g, .y.b { @extend %lit; background-color: #01a611; }
+.p, .r.b { @extend %lit; background-color: lighten(purple, 10%); }
+.o, .r.y { @extend %lit; background-color: orange; }
 
-.m { background-color: magenta; }
-.c { background-color: cyan; }
-.w { background-color: white; }
-.k { background-color: black; }
+.m { @extend %lit; background-color: magenta; }
+.c { @extend %lit; background-color: cyan; }
+.w { @extend %lit; background-color: white; }
+.k { @extend %lit; background-color: black; }
 
 /*===============
 NUMBERS
