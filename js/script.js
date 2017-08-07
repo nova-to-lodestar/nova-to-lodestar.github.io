@@ -21,13 +21,15 @@ var shapes = [
     'tetra'
 ]
 
-var makeTable = function(containerSelector) {
+var makeTable = function() {
+    var allPage = $('body').hasClass("all");
+
     var html = '<table id="' + slug + '">';
     $.each(new Array(8), function(i, value) {
         html += '<tr data-num=' + (i + 1) + '>';
         $.each(new Array(8), function(j, value) {
             html += '<td data-num=' + (j + 1) + ' data-shape class="">';
-            if (containerSelector == ".container-single") {
+            if (!allPage) {
                 $.each(colors, function(k, color) {
                     html += '<div class="' + color + '">'
                     $.each(shapes, function(l, shape) {
@@ -41,6 +43,10 @@ var makeTable = function(containerSelector) {
     });
     html += '</table>';
 
+    var containerSelector = ".container-" + slug;
+    if (!allPage) {
+        containerSelector = ".container-single";
+    }
     $(containerSelector).html(html);
 }
 
@@ -267,7 +273,7 @@ var checkInventory = function() {
 }
 
 $(function() {
-    makeTable('.container-single');
+    makeTable();
     setupGrid();
 
     els = '';
