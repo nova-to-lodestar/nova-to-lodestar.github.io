@@ -11,7 +11,8 @@ layout: default
       <li><a class="page-link" href="high/00/">High</a></li>
     </ul>
 
-    {% for collection in site.collections %}
+    {% assign groups = site.collections | sort: 'title' %}
+    {% for collection in groups %}
         <h2>{{ collection.title }}</h2>
         <ul class="post-list">
             {% for doc in collection.docs %}

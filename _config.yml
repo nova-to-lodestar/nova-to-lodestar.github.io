@@ -33,15 +33,15 @@ exclude:
 collections:
   low:
     output: true
-    title: Low
+    title: 1. Low
     permalink: /:collection/:path/index.html
   med:
     output: true
-    title: Medium
+    title: 2. Medium
     permalink: /:collection/:path/index.html
   high:
     output: true
-    title: High
+    title: 3. High
     permalink: /:collection/:path/index.html
 
 defaults:

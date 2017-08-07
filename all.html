@@ -14,7 +14,8 @@ var toggleColor = '';
 </head>
 <body class="all">
 
-{% for collection in site.collections %}
+{% assign groups = site.collections | sort: 'title' %}
+{% for collection in groups %}
     <h2>{{ collection.title }}</h2>
     {% for doc in collection.docs %}
         {% if doc.title == "Blank" %}
