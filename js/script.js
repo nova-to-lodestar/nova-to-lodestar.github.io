@@ -259,7 +259,7 @@ var shape = function(el, color, shape) {
 var checkInventory = function() {
     var shapeCounts = _.countBy(elements, function(n) { return n; });
 
-    var elementsOver = $('[data-shape][data-color]').length > elements.length;
+    var elementsOver = $('[data-shape!=""][data-color]').length > elements.length;
 
     var sphereOver = $('[data-shape=sphere]').length > (shapeCounts['sphere'] || 0);
     var cubeOver = $('[data-shape=cube]').length > (shapeCounts['cube'] || 0);
