@@ -6,6 +6,8 @@
 //     [false,false,false,false,false,false,false,false]
 // ];
 
+var DEBUG = true;
+
 var setupGrid = function() {};
 var ready = false;
 
@@ -257,6 +259,10 @@ var shape = function(el, color, shape) {
 };
 
 var checkInventory = function() {
+    if (DEBUG) {
+        return true;
+    }
+
     var shapeCounts = _.countBy(elements, function(n) { return n; });
 
     var elementsOver = $('[data-shape!=""][data-color]').length > elements.length;
