@@ -31,20 +31,28 @@ exclude:
 
 # Collections
 collections:
-  low:
+  v2:
     output: true
-    title: 1. Low
+    title: v2
     permalink: /:collection/:path/index.html
-  med:
-    output: true
-    title: 2. Medium
-    permalink: /:collection/:path/index.html
-  high:
-    output: true
-    title: 3. High
-    permalink: /:collection/:path/index.html
+  # low:
+  #   output: true
+  #   title: 1. Low
+  #   permalink: /:collection/:path/index.html
+  # med:
+  #   output: true
+  #   title: 2. Medium
+  #   permalink: /:collection/:path/index.html
+  # high:
+  #   output: true
+  #   title: 3. High
+  #   permalink: /:collection/:path/index.html
 
 defaults:
+  - scope:
+      type: v2
+    values:
+      layout: v2
   - scope:
       type: low
     values:

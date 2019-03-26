@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>{{ layout.puzzletype }} • {{ page.title }}</title>
+<link rel="stylesheet" type="text/css" href="/css/puzzle.css">
+<script src="//code.jquery.com/jquery-3.1.0.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+<script>
+var toggleColor = '{{ layout.color }}';
+var slug = '{{ page.title | slugify }}';
+</script>
+<script src="/js/scriptv2.js"></script>
+{{ content }}
+</head>
+<body class="{{ layout.puzzletype }}">
+<section class="nav">
+{% if page.sidebar %}
+    {{ page.sidebar }}
+{% else %}
+<form action="#" id="controls">
+    <section>
+        <label><input type="radio" name="cross" value="0" checked>+</label>
+        <label><input type="radio" name="cross" value="1">x</label>
+    </section>
+    <section>
+        <label><input type="radio" name="middle" value="0" checked>🔴</label>
+        <label><input type="radio" name="middle" value="1">⭕️</label>
+    </section>
+    <section>
+        <label><input type="radio" name="stretch" value="0" checked>①</label>
+        <label><input type="radio" name="stretch" value="1">♾</label>
+    </section>
+</form>
+{% endif %}
+    <a class="refresh" href="#">Reset</a>
+    <a class="home" href="/">Home</a>
+    <a href="{{ page.next.url }}" class="next">Next &rarr;</a>
+    <audio id="success" src="/mp3/done.mp3"></audio>
+    <audio id="fail" src="/mp3/buzzer.m4a"></audio>
+</section>
+<section class="container-single"></section>
+
+</body>
+
+</html>
+

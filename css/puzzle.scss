@@ -50,6 +50,20 @@ $nav_width: 20%;
         margin: .5em 0;
         display: block;
     }
+
+    section {
+        padding: 1.5em 0;
+        border-bottom: 1px solid #000;
+    }
+
+    label {
+        font-size: 2em;
+        margin: 0 10px 0 0;
+    }
+
+    input[type=radio] {
+        // font-size: 3em;
+    }
 }
 
 .error {
@@ -131,7 +145,7 @@ tr {
     height: 12.5%;
 }
 
-$dim: 22px;
+$dim: 60px;
 
 td {
     border: 3px solid #777;
