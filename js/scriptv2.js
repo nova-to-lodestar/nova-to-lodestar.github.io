@@ -252,6 +252,12 @@ var yellowCube = function(r, c) { flipOpposite(getCell(r, c), 'y'); };
 
 var white000 = function(r, c) { flipPlus(getCell(r, c), 'w', true); };
 var white001 = function(r, c) { flipX(getCell(r, c), 'w', true); };
+var white010 = function(r, c) { flipPlus(getCell(r, c), 'w', false); };
+var white011 = function(r, c) { flipX(getCell(r, c), 'w', false); };
+var white100 = function(r, c) { flipExtendedPlus(getCell(r, c), 'w', true); };
+var white101 = function(r, c) { flipExtendedX(getCell(r, c), 'w', true); };
+var white100 = function(r, c) { flipExtendedPlus(getCell(r, c), 'w', false); };
+var white111 = function(r, c) { flipExtendedX(getCell(r, c), 'w', false); };
 
 var shape = function(el, color, shape) {
     var el = $(el).closest('td');
