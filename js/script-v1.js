@@ -12,20 +12,24 @@ var setupGrid = function() {};
 var ready = false;
 
 var colors = [
-    'white'
+    'red',
+    'blue',
+    'yellow'
 ]
 
 var shapes = [
-    'sphere'
+    'sphere',
+    'cube',
+    'tetra'
 ]
 
 var makeTable = function() {
     var allPage = $('body').hasClass("all");
 
     var html = '<table id="' + slug + '">';
-    $.each(new Array(5), function(i, value) {
+    $.each(new Array(7), function(i, value) {
         html += '<tr data-num=' + (i + 1) + '>';
-        $.each(new Array(5), function(j, value) {
+        $.each(new Array(7), function(j, value) {
             html += '<td data-num=' + (j + 1) + ' data-shape class="">';
             if (!allPage) {
                 $.each(colors, function(k, color) {
@@ -72,15 +76,13 @@ var flipOne = function(el, color) {
     isDone();
 };
 
-var flipPlus = function(el, color, middle) {
+var flipPlus = function(el, color) {
     var td = $(el).closest('td');
     var tr = $(el).closest('td').parent();
     var tdnum = td.index();
     var trnum = tr.index();
 
-    if (middle) {
-        flip(td, color);
-    }
+    flip(td, color);
     flip(td.next(), color);
     flip(td.prev(), color);
     flip(tr.prev().find('td')[tdnum], color);
@@ -89,15 +91,13 @@ var flipPlus = function(el, color, middle) {
     isDone();
 };
 
-var flipX = function(el, color, middle) {
+var flipX = function(el, color) {
     var td = $(el).closest('td');
     var tr = $(el).closest('td').parent();
     var tdnum = td.index();
     var trnum = tr.index();
 
-    if (middle) {
-        flip(td, color);
-    }
+    flip(td, color);
     flip(tr.prev().find('td')[tdnum-1], color);
     flip(tr.prev().find('td')[tdnum+1], color);
     flip(tr.next().find('td')[tdnum-1], color);
@@ -124,7 +124,7 @@ var flipRing = function(el, color) {
     isDone();
 };
 
-var flipExtendedPlus = function(el, color, middle) {
+var flipExtendedPlus = function(el, color) {
     var table = $(el).closest('table');
     var td = $(el).closest('td');
     var tr = $(el).closest('td').parent();
@@ -132,23 +132,18 @@ var flipExtendedPlus = function(el, color, middle) {
 
     flip(td.siblings(), color);
     flip(table.find('td[data-num=' + tdnum + ']'), color);
-    if (!middle) {
-        flip(td, color);
-    }
 
     isDone();
 };
 
-var flipExtendedX = function(el, color, middle) {
+var flipExtendedX = function(el, color) {
     var table = $(el).closest('table');
     var td = $(el).closest('td');
     var tr = $(el).closest('td').parent();
     var tdnum = parseInt(td.attr('data-num'));
     var trnum = parseInt(tr.attr('data-num'));
 
-    if (middle) {
-        flip(td, color);
-    }
+    flip(td, color);
     $.each(Array(8), function(i, n) {
         flip(table.find('tr[data-num=' + (trnum - i) + '] td[data-num=' + (tdnum - i) + ']'), color);
         flip(table.find('tr[data-num=' + (trnum + i) + '] td[data-num=' + (tdnum - i) + ']'), color);
@@ -239,25 +234,17 @@ var flipBetween = function(el) {
 var elements = [];
 var usedColors = new Set();
 
-var turnOn = function(r, c) { flip(getCell(r, c), 'w'); };
+var turnOn = function(r, c, color) { flip(getCell(r, c), color); };
 
-var redSphere = function(r, c) { flip(getCell(r, c), 'r'); };
-var redCube = function(r, c) { flipX(getCell(r, c), 'r'); };
-var redTetra = function(r, c) { flipPlus(getCell(r, c), 'r'); };
-// var blueSphere = function(r, c) { flip(getCell(r, c), 'b');'sphere')};
-var blueCube = function(r, c) { flipExtendedX(getCell(r, c), 'b'); };
-var blueTetra = function(r, c) { flipExtendedPlus(getCell(r, c), 'b'); };
-var yellowSphere = function(r, c) { flipRing(getCell(r, c), 'y'); };
-var yellowCube = function(r, c) { flipOpposite(getCell(r, c), 'y'); };
-
-var white000 = function(r, c) { flipPlus(getCell(r, c), 'w', true); };
-var white001 = function(r, c) { flipX(getCell(r, c), 'w', true); };
-var white010 = function(r, c) { flipPlus(getCell(r, c), 'w', false); };
-var white011 = function(r, c) { flipX(getCell(r, c), 'w', false); };
-var white100 = function(r, c) { flipExtendedPlus(getCell(r, c), 'w', true); };
-var white101 = function(r, c) { flipExtendedX(getCell(r, c), 'w', true); };
-var white100 = function(r, c) { flipExtendedPlus(getCell(r, c), 'w', false); };
-var white111 = function(r, c) { flipExtendedX(getCell(r, c), 'w', false); };
+var redSphere = function(r, c) { flip(getCell(r, c), 'r'); elements.push('sphere'); usedColors.add('r')};
+var redCube = function(r, c) { flipX(getCell(r, c), 'r'); elements.push('cube'); usedColors.add('r')};
+var redTetra = function(r, c) { flipPlus(getCell(r, c), 'r'); elements.push('tetra'); usedColors.add('r')};
+// var blueSphere = function(r, c) { flip(getCell(r, c), 'b'); elements.push('sphere')};
+var blueCube = function(r, c) { flipExtendedX(getCell(r, c), 'b'); elements.push('cube'); usedColors.add('b')};
+var blueTetra = function(r, c) { flipExtendedPlus(getCell(r, c), 'b'); elements.push('tetra'); usedColors.add('b')};
+var yellowSphere = function(r, c) { flipRing(getCell(r, c), 'y'); elements.push('sphere'); usedColors.add('y')};
+var yellowCube = function(r, c) { flipOpposite(getCell(r, c), 'y'); elements.push('cube'); usedColors.add('y')};
+var yellowTetra = function(r, c) { rotateRing(getCell(r, c), 'y'); elements.push('tetra'); usedColors.add('y')};
 
 var shape = function(el, color, shape) {
     var el = $(el).closest('td');
@@ -270,6 +257,44 @@ var shape = function(el, color, shape) {
     el.attr('data-shape', shape);
     return true;
 };
+
+var checkInventory = function() {
+    if (DEBUG) {
+        return true;
+    }
+
+    var shapeCounts = _.countBy(elements, function(n) { return n; });
+
+    var elementsOver = $('[data-shape!=""][data-color]').length > elements.length;
+
+    var sphereOver = $('[data-shape=sphere]').length > (shapeCounts['sphere'] || 0);
+    var cubeOver = $('[data-shape=cube]').length > (shapeCounts['cube'] || 0);
+    var tetraOver = $('[data-shape=tetra]').length > (shapeCounts['tetra'] || 0);
+
+    var redOver = $('[data-color=red]').length > 0 && !usedColors.has("r");
+    var blueOver = $('[data-color=blue]').length > 0 && !usedColors.has("b");
+    var yellowOver = $('[data-color=yellow]').length > 0 && !usedColors.has("y");
+
+    var errorMessage = "";
+
+    if (elementsOver) {
+        errorMessage = "Error: too many minerals.";
+    } else if (sphereOver || cubeOver || tetraOver) {
+        errorMessage = "Error: wrong mineral shape.";
+    } else if (redOver || blueOver || yellowOver) {
+        errorMessage = "Error: wrong mineral color.";
+    }
+
+    if (errorMessage != "") {
+        $('td').each(function(i) {
+            $(this).attr('class', 'blink-fail-' + (Math.floor(Math.random() * 4) + 1));
+        });
+        $('.msg-box').html('<strong class="error">' + errorMessage + '</strong>')
+        $('#fail').trigger('play');
+        return false;
+    }
+    return true;
+}
 
 $(function() {
     makeTable();
@@ -297,96 +322,75 @@ $(function() {
         $('.value').html($('.newvalue').html());
     });
 
-    $('.white .sphere').click(function(e) {
-        e.preventDefault();
-        var cross = $("#controls input[name='cross']:checked").val();
-        var middle = $("#controls input[name='middle']:checked").val();
-        var stretch = $("#controls input[name='stretch']:checked").val();
-
-        var code = "c" + stretch + middle + cross;
-
-        console.log(code);
-
-        switch(code) {
-            case "c000":
-                flipPlus(this, 'w', true);
-                break;
-            case "c001":
-                flipX(this, 'w', true);
-                break;
-            case "c010":
-                flipPlus(this, 'w', false);
-                break;
-            case "c011":
-                flipX(this, 'w', false);
-                break;
-            case "c100":
-                flipExtendedPlus(this, 'w', true);
-                break;
-            case "c101":
-                flipExtendedX(this, 'w', true);
-                break;
-            case "c110":
-                flipExtendedPlus(this, 'w', false);
-                break;
-            case "c111":
-                flipExtendedX(this, 'w', false);
-                break;
-        }
-
-    });
-
     $('.red .sphere').click(function(e) {
         e.preventDefault();
         shape(this, 'red', 'sphere');
-        flipOne(this, 'r');
+        if (checkInventory()) {
+            flipOne(this, 'r');
+        }
     });
 
     $('.red .cube').click(function(e) {
         e.preventDefault();
         shape(this, 'red', 'cube');
-        flipX(this, 'r');
+        if (checkInventory()) {
+            flipX(this, 'r');
+        }
     });
 
     $('.red .tetra').click(function(e) {
         e.preventDefault();
         shape(this, 'red', 'tetra');
-        flipPlus(this, 'r');
+        if (checkInventory()) {
+            flipPlus(this, 'r');
+        }
     });
 
     $('.blue .sphere').click(function(e) {
         e.preventDefault();
         shape(this, 'blue', 'sphere');
-        flipBetween(this, 'b');
+        if (checkInventory()) {
+            flipBetween(this, 'b');
+        }
     });
 
     $('.blue .cube').click(function(e) {
         e.preventDefault();
         shape(this, 'blue', 'cube');
-        flipExtendedX(this, 'b');
+        if (checkInventory()) {
+            flipExtendedX(this, 'b');
+        }
     });
 
     $('.blue .tetra').click(function(e) {
         e.preventDefault();
         shape(this, 'blue', 'tetra');
-        flipExtendedPlus(this, 'b');
+        if (checkInventory()) {
+            flipExtendedPlus(this, 'b');
+        }
     });
 
     $('.yellow .sphere').click(function(e) {
         e.preventDefault();
         shape(this, 'yellow', 'sphere');
-        flipRing(this, 'y');
+        if (checkInventory()) {
+            flipRing(this, 'y');
+        }
     });
 
     $('.yellow .cube').click(function(e) {
         e.preventDefault();
         shape(this, 'yellow', 'cube');
-        flipOpposite(this, 'y');
+        if (checkInventory()) {
+            flipOpposite(this, 'y');
+        }
     });
 
     $('.yellow .tetra').click(function(e) {
         e.preventDefault();
         shape(this, 'yellow', 'tetra');
-        rotateRing(this, 'y');
+        if (checkInventory()) {
+            rotateRing(this, 'y');
+        }
     });
 });
